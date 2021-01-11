@@ -8,9 +8,29 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+    <div class="header_left">
+      <a href="/"><%= image_tag 'logo.png' %></a>
+
+      <form class="form1"  action="/" method="get">
+        <i class="fas fa-map-marker-alt"></i>
+        <input id="sbox1" id="s" name="s" type="text" placeholder="エリア検索" /></form>
+
+      <form class="form1"  action="/" method="get">
+        <i class="fas fa-search"></i>
+        <input id="sbox2" id="s" name="s" type="text" placeholder="キーワード検索" /></form>
+    </div>
+
+    </header>
+      <%= yield %>
+      <footer>
+        <p><span>©</span> 2021 KUMAKUMA.INC.</p>
+      </footer>
+
   </body>
 </html>

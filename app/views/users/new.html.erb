@@ -1,0 +1,12 @@
+<div class="create">
+    <h5>新しいアカウントを作成</h5>
+    <div class="create_form">
+    <%= form_tag("/users/create") do %>
+        <input  name="name" type="text" placeholder="（必須）ユーザー名" class="create_input" >
+        <input  name="email" type="text" placeholder="（必須）メールアドレス" class="create_input">
+        <input  name="pass" type="text" placeholder="（必須）パスワード" class="create_input">
+        <input type="submit" value="新規登録" class="create_btn">
+    <% end %>
+    <%= link_to("既にアカウントをお持ちの方はログイン","/", class:"login") %>
+    </div>
+</div>

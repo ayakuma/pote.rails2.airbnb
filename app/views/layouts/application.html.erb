@@ -10,21 +10,34 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
+
   </head>
 
   <body>
     <header>
     <div class="header_left">
-      <a href="/"><%= image_tag 'logo.png' %></a>
+      <%= link_to image_tag("logo.png", class:"img"),"/" %>
 
       <form class="form1"  action="/" method="get">
         <i class="fas fa-map-marker-alt"></i>
-        <input id="sbox1" id="s" name="s" type="text" placeholder="エリア検索" /></form>
+        <input id="sbox1" name="area" type="text" placeholder="エリア検索" class="index_input"></form>
 
       <form class="form1"  action="/" method="get">
         <i class="fas fa-search"></i>
-        <input id="sbox2" id="s" name="s" type="text" placeholder="キーワード検索" /></form>
+        <input id="sbox2" name="keyword" type="text" placeholder="キーワード検索" class="index_input"></form>
     </div>
+
+    <div class="header_right">
+      <ul>
+        <li>
+          <%= link_to("ログイン","/users/index") %>
+        </li>
+        <li>
+          <%= link_to("登録する","/users/new") %>
+        </li>
+      </ul>
+    </div>
+
 
     </header>
       <%= yield %>

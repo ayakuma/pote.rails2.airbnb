@@ -23,9 +23,10 @@
                 <td><%= user.img %></td>
                 <td><%= user.introduction %></td>
                 <td><%= user.created_at.to_s(:datetime_jp) %></td>
+                
+                <td><%= link_to("確認","/users/#{user.id}") %></td>                
+                <td><%= link_to "削除", method: :delete %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
-                <%# <td><%= link_to "編集", [:edit, user], class:"textdeco"</td> %> %>
-                <%# <td><%= link_to "削除", user, method: :delete, data:{confirm:"本当に削除しますか？"}, class:"textdeco"</td> %> %>

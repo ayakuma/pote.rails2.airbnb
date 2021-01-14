@@ -1,0 +1,22 @@
+<div class="users_show">
+    <div class="show_box">
+
+        <h1>ログイン情報編集</h1>
+
+        <div>
+            <hr size="1px" color="#bbb">
+            <div class="show_pass">
+                <h3>メールアドレス</h3>
+                <p><%= @user.email %></p>
+            </div>
+            <hr size="1px" color="#bbb">
+            <div class="show_pass">
+                <h3>パスワード</h3>
+                <p><%= @user.pass %></p>
+            </div>
+            <hr size="1px" color="#bbb">
+        </div>
+
+        <%= link_to("編集","/users/#{@user.id}/edit")%>
+    </div>
+</div>

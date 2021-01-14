@@ -1,0 +1,32 @@
+<div class="container">
+    
+    <ul>
+        <li><%= link_to("ログイン情報","/users/#{@user.id}",class:"active") %></li>
+        <li><%= link_to("プロフィール","/users/#{@user.id}/account") %></li>
+    </ul>
+
+<div class="users_show">
+    <div class="show_box">
+
+        <h3>ログイン情報</h3>
+
+        <div class="show_container">
+            <hr size="1px" color="#e7e7e7">
+            <div class="show_pass">
+                <h4>メールアドレス</h4>
+                <p><%= @user.email %></p>
+            </div>
+            <hr size="1px" color="#e7e7e7">
+            <div class="show_pass">
+                <h4>パスワード</h4>
+                <p><%= @user.pass %></p>
+            </div>
+            <hr size="1px" color="#e7e7e7">
+        </div>
+        
+
+        <div class="edit_btn"><%= link_to("編集","/users/#{@user.id}/edit")%></div>
+    </div>
+</div>
+
+</div>

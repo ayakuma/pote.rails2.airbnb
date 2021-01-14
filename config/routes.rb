@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
   get "/" => 'room#index'
-
-
-
-
-
+  
   get "users/index" => "users#index"
   get "users/new" => "users#new"
+  get "users/:id" => "users#show"
   post "users/create" => "users#create"
-  get "users/edit" => "users/edit"
-  
+  get "users/:id/edit" => "users#edit"
+  get "users/:id/destroy" => "users#destory"
+  get "users/:id/account" => "users#account"
 
 
 

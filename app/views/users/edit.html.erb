@@ -3,20 +3,21 @@
 
         <h1>ログイン情報編集</h1>
 
+      <%= form_tag("/users/#{@user.id}/update") do %>
         <div>
             <hr size="1px" color="#bbb">
             <div class="show_pass">
                 <h3>メールアドレス</h3>
-                <p><%= @user.email %></p>
+                <input  name="email" type="text" class="create_input" value="<%= @user.email %>">
             </div>
             <hr size="1px" color="#bbb">
             <div class="show_pass">
                 <h3>パスワード</h3>
-                <p><%= @user.pass %></p>
+                <input  name="pass" type="text" class="create_input" value="<%= @user.pass %>">
             </div>
             <hr size="1px" color="#bbb">
         </div>
-
-        <%= link_to("編集","/users/#{@user.id}/edit")%>
+        <input type="submit" value="編集" class="create_btn">
+        <% end %>
     </div>
 </div>

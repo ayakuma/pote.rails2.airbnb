@@ -9,21 +9,21 @@
     <div class="show_box">
 
       <h3>プロフィール</h3>
-
-      <%= form_tag("/users/create") do %>
+      <%= form_tag("/users/#{@user.id}/update") do %>
         <div class="show_container">
 
           <hr size="1px" color="#e7e7e7">
         
           <label for="">画像</label>
           <p>必須</p>
-          <input  name="img" type="text" class="create_input" value="#{@user.img}">
+          <input  name="img" type="file" class="create_input" value="<%= @user.img %>">
+          <%= @user.img %>
 
           <hr size="1px" color="#e7e7e7">
         
           <label for="">ユーザー名</label>
           <p>必須</p>
-          <input  name="name" type="text" class="create_input" value="#{@user.name}">
+          <input  name="name" type="text" class="create_input" value="<%= @user.name %>">
 
 
           <hr size="1px" color="#e7e7e7">
@@ -31,7 +31,7 @@
 
           <label for="">自己紹介</label>
           <p>必須</p>
-          <input  name="introduction" type="text" class="create_input" value="#{@user.introduction}">
+          <input  name="introduction" type="text" class="create_input" value="<%= @user.introduction %>">
 
 
           <hr size="1px" color="#e7e7e7">

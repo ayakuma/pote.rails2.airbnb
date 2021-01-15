@@ -8,8 +8,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name: params[:name], email: params[:email], pass: params[:pass], img: params[:img], introduction: params[:introduction]
-    )
+    @user = User.new(name: params[:name], email: params[:email], pass: params[:pass])
     if @user.save
       redirect_to("/users/#{@user.id}")
     else
@@ -22,21 +21,27 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
+
   end
 
   def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(name: params[:name], img: params[:img], introduction: params[:introduction])
+      flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
+      redirect_to("/users/#{@user.id}/account")
+    else
+      render "edit"
+    end
   end
-
+  
   def destroy
     @user = User.find(id: params[:id])
     @user.def destroy
-      redirect_to :users
-
+    redirect_to :users
   end
-
+  
   def account
     @user = User.find_by(id: params[:id])
   end
 end
-

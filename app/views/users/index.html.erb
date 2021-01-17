@@ -1,6 +1,5 @@
 <h1>管理者画面：ユーザー一覧</h1>
 
-
 <table> 
     <thead>
         <tr>
@@ -20,12 +19,12 @@
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
                 <td><%= user.pass %></td>
-                <td><%= user.img %></td>
+                <td><img src="<%="#{user.img}"%>" class="img"></td>
                 <td><%= user.introduction %></td>
                 <td><%= user.created_at.to_s(:datetime_jp) %></td>
                 
                 <td><%= link_to("確認","/users/#{user.id}") %></td>                
-                <td><%= link_to "削除", method: :delete %></td>
+                <td><%= link_to("削除", user, method: :delete, data:{confirm:"本当に削除しますか？"}) %></td>
             </tr>
         <% end %>
     </tbody>

@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get "users/:id" => "users#show"
   post "users/create" => "users#create"
   get "users/:id/edit" => "users#edit"
-  get "users/:id/destroy" => "users#destory"
+  post "users/:id/destroy" => "users#destroy"
   get "users/:id/account" => "users#account"
   post "users/:id/update" => "users#update"
 
+
+  resources :users
 
 
 

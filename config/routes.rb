@@ -1,18 +1,27 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "/" => 'room#index'
   
   get "users/index" => "users#index"
-  get "users/new" => "users#new"
+  get "signup" => "users#new"
   get "users/:id" => "users#show"
   post "users/create" => "users#create"
   get "users/:id/edit" => "users#edit"
   post "users/:id/destroy" => "users#destroy"
   get "users/:id/account" => "users#account"
   post "users/:id/update" => "users#update"
+  # get "login" => "users#login_form"
+  # post "login" => "device#login"
+  # post 'logout'=> 'users#logout'
 
 
   resources :users
 
+
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions',
+  #   registrations: 'users/registrations'
+  # }
 
 
   

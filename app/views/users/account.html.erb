@@ -21,9 +21,8 @@
           <p>必須</p>
           <input  name="img" type="file" class="create_input" value="<%= @user.img %>">
           <%= @user.img %>
-          <img src="<%= "/#{@user.img}" %>">
-
-                  <%= image_tag "home.jpg", :size => '100x100' %>
+          <img src="<% "/#{@user.img}" %>">
+          <%= image_tag "home.jpg", :size => '100x100' %>
 
           <hr size="1px" color="#e7e7e7">
         

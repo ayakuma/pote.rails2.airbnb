@@ -1,5 +1,9 @@
 <h1>管理者画面：ユーザー一覧</h1>
-
+<% if flash.notice %>
+  <p class="notice"><%= flash.notice%></p>
+<%end%>
+<p>ログインユーザー：
+<%= session[:user_id] %></p>
 <table> 
     <thead>
         <tr>

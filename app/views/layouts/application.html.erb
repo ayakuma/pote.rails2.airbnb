@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aya</title>
+    <title>Ayabnb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -29,12 +29,21 @@
 
     <div class="header_right">
       <ul>
+        <% if session[:user_id] %>
         <li>
-          <%= link_to("仮user一覧","/users/index") %>
+          <%= link_to("一覧","/users/index") %>
         </li>
         <li>
-          <%= link_to("登録する","/users/new") %>
+          <%= link_to("ログアウト","/logout", {method: :post}) %>
         </li>
+        <%else%>
+        <li>
+          <%= link_to("ログイン","new_user_session_path") %>
+        </li>
+        <li>
+          <%= link_to("登録する","/signup") %>
+        </li>
+        <% end %>
       </ul>
     </div>
 

@@ -3,27 +3,16 @@ Rails.application.routes.draw do
   get "/" => 'room#index'
   
   get "users/index" => "users#index"
-  get "signup" => "users#new"
+  # get "signup" => "users#new"
   get "users/:id" => "users#show"
-  post "users/create" => "users#create"
-  get "users/:id/edit" => "users#edit"
-  post "users/:id/destroy" => "users#destroy"
-  get "users/:id/account" => "users#account"
-  post "users/:id/update" => "users#update"
-  # get "login" => "users#login_form"
-  # post "login" => "device#login"
-  # post 'logout'=> 'users#logout'
-
+  get "users/:id/edit"=>"users#edit"
 
   resources :users
 
-
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions',
-  #   registrations: 'users/registrations'
-  # }
-
-
+  devise_scope :user do
+    get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'
+    patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
+  end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

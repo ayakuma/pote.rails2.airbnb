@@ -3,7 +3,7 @@
   <p class="notice"><%= flash.notice%></p>
 <%end%>
 <p>ログインユーザー：
-<%= session[:user_id] %></p>
+<%= [:user_id] %></p>
 <table> 
     <thead>
         <tr>
@@ -22,12 +22,17 @@
                 <td><%= user.id %></td>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
-                <td><%= user.pass %></td>
-                <td><img src="<%="#{user.img}"%>" class="img"></td>
+                <td><%= user.password %></td>
+                <td>
+                    <% if user.img? %>
+                        <%= image_tag user.img.url ,class: "icon"%>
+                    <% else %>
+                        <%= image_tag "default.png" ,class: "icon" %>
+                    <% end %></td>
                 <td><%= user.introduction %></td>
                 <td><%= user.created_at.to_s(:datetime_jp) %></td>
                 
-                <td><%= link_to("確認","/users/#{user.id}") %></td>                
+                <td><%= link_to("確認",edit_user_registration_path) %></td>                
                 <td><%= link_to("削除", user, method: :delete, data:{confirm:"本当に削除しますか？"}) %></td>
             </tr>
         <% end %>

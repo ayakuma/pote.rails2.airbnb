@@ -67,12 +67,7 @@
     font-size: 15px;
 }
 
-// == sidemenu ==
-
-.container{
-    display: flex;
-    background-color: #f5f8f9;
-}
+// == prorfile_sidemenu ==
 
 .container ul {
     width: 200px;
@@ -100,34 +95,38 @@
     color: #4B8FE2;
 }
 
-// ==== users/show.html ====
+// ==== users/edit.html ====
 
-.users_show{
+.container{
+    display: flex;
     background-color: #f5f8f9;
-    margin: 30px auto;
-    width: 700px;
 }
 
-.show_box{
+.profile_container{
+    margin: 30px auto;
+}
+
+.profile_box{
     border: none;
     background-color: #fff;
     padding: 30px 40px;
     box-shadow: 0px 0px 10px #b5b5b5;
     color: #515151;
+    width: 800px;
 }
 
-.show_container{
-    margin: 30px 0;
-}
+// .show_container{
+    // margin: 30px 0;
+// }
 
-.show_pass h4{
-    display: inline-block;
-    width: 200px;
-}
+// .show_pass h4{
+//     display: inline-block;
+//     width: 200px;
+// }
 
-.show_pass p{
-    display: inline-block;
-}
+// .show_pass p{
+//     display: inline-block;
+// }
 
 .edit_btn a{
     color: #fff;
@@ -147,14 +146,45 @@
 
 // img
 
-.img{
+.icon{
     height: 100px;
+    width: 100px;    
 }
 
 
-// == account ==
+// == device ==
 
-.account {
-    margin: 30px auto;
-    width: 700px;
+.field{
+    display: flex;
+}
+
+.field i{
+    // position: absolute;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.profile_label{
+    width: 150px;
+    height: 30px;
+    line-height: 30px; 
+    font-size: 15px;
+    margin: auto 0;
+}
+
+.profile_textfield{
+    // display: inline-block;
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+    margin: 20px 0;
+}
+
+.profile_textarea{
+    width: 300px;
+    height: 100px;
+    padding-left: 10px;
+    margin: 20px 0;
 }

@@ -27,21 +27,23 @@
         <input id="sbox2" name="keyword" type="text" placeholder="キーワード検索" class="index_input"></form>
     </div>
 
+
+
     <div class="header_right">
       <ul>
-        <% if session[:user_id] %>
+        <% if user_signed_in? %>
         <li>
           <%= link_to("一覧","/users/index") %>
         </li>
         <li>
-          <%= link_to("ログアウト","/logout", {method: :post}) %>
+          <%= link_to("ログアウト",destroy_user_session_path, method: :delete) %>
         </li>
         <%else%>
         <li>
-          <%= link_to("ログイン","new_user_session_path") %>
+          <%= link_to("ログイン",new_user_session_path) %>
         </li>
         <li>
-          <%= link_to("登録する","/signup") %>
+          <%= link_to("登録する",new_user_registration_path) %>
         </li>
         <% end %>
       </ul>
@@ -49,6 +51,9 @@
 
 
     </header>
+         <% if flash.notice %>
+          <p class="notice"><%= flash.notice%></p>
+         <%end%>
       <%= yield %>
       <footer>
         <p><span>©</span> 2021 KUMAKUMA.INC.</p>

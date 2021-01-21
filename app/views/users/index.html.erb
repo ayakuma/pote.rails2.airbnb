@@ -32,7 +32,7 @@
                 <td><%= user.introduction %></td>
                 <td><%= user.created_at.to_s(:datetime_jp) %></td>
                 
-                <td><%= link_to("確認",edit_user_registration_path) %></td>                
+                <td><%= link_to("確認","/users/show") %></td>                
                 <td><%= link_to("削除", user, method: :delete, data:{confirm:"本当に削除しますか？"}) %></td>
             </tr>
         <% end %>

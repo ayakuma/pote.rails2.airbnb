@@ -115,6 +115,10 @@
     width: 800px;
 }
 
+.profile_box hr {
+    margin: 20px 0;
+}
+
 // .show_container{
     // margin: 30px 0;
 // }
@@ -128,10 +132,10 @@
 //     display: inline-block;
 // }
 
-.edit_btn a{
+.edit_btn a {
     color: #fff;
     text-decoration: none;
-    padding: 10px 70px;
+    padding: 5px 70px;
     background-color: #4B8FE2;
     border-radius: 5px;
     text-align: center;
@@ -140,6 +144,36 @@
 }
 
 .edit_btn a:hover{
+    opacity: .8;
+}
+
+.back_btn > a{
+    font-size: 13px;
+    margin: 20px auto;
+    width: 30px;
+    padding: 0 0 0 5px;
+    text-align: center;
+}
+
+.actions  {
+    text-align: center;
+}
+
+.actions input {
+    margin: 20px 0;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 100px;
+    background-color: #4B8FE2;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    transition: .2s;
+    border: none;
+    cursor: pointer;
+}
+
+.actions input:hover{
     opacity: .8;
 }
 
@@ -156,14 +190,15 @@
 
 .field{
     display: flex;
+    width: 700px;
+    margin: 0 auto;
 }
 
 .field i{
-    // position: absolute;
     display: flex;
     font-size: 12px;
     align-items: center;
-    padding-left: 30px;
+    // padding-left: 30px;
 }
 
 .profile_label{
@@ -172,19 +207,34 @@
     line-height: 30px; 
     font-size: 15px;
     margin: auto 0;
+    text-align: center;
+}
+
+.profile_filefield{
+    width: 300px;
+    height: 30px;
+    line-height: 30px; 
+    font-size: 15px;
+    margin: auto 0;
+    text-align: center;
 }
 
 .profile_textfield{
     // display: inline-block;
-    width: 300px;
+    width: 500px;
     height: 30px;
+    padding-left: 10px;
+    // margin: 20px 0;
+}
+
+.profile_textarea{
+    width: 500px;
+    height: 100px;
     padding-left: 10px;
     margin: 20px 0;
 }
 
-.profile_textarea{
-    width: 300px;
-    height: 100px;
-    padding-left: 10px;
-    margin: 20px 0;
+.errormesse{
+    color: #FF7068;
+    font-size: 11px;
 }

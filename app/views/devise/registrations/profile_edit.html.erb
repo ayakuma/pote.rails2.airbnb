@@ -1,7 +1,7 @@
 <div class="container">
 
   <ul>
-      <li><%= link_to("アカウント",edit_user_registration_path )%></li>
+      <li><%= link_to("アカウント","/users/show" )%></li>
       <li><%= link_to("プロフィール",profile_edit_path,class:"active") %></li>
   </ul>
 
@@ -9,16 +9,18 @@
     <div class="profile_box">
 
       <h3>プロフィール</h3>
-      
-      <% if flash.notice %>
-        <p class="notice"><%= flash.notice%></p>
-      <%end%>
 
       <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
         <hr size="1px" color="#bbb">
         <div class="field">
           <%= f.label :img ,class:"profile_label" %><br />
-          <%= f.file_field :img ,class:"profile_textfield" %>
+          <%= f.file_field :img ,class:"profile_filefield" %>
+
+          <% if current_user.img? %>
+              <%= image_tag current_user.img.url ,class: "icon"%>
+          <% else %>
+              <%= image_tag "default.png" ,class: "icon" %>
+          <% end %>
         </div>
       <hr size="1px" color="#bbb">
         <div class="field">
@@ -30,6 +32,8 @@
           <%= f.label :introduction,class:"profile_label" %><br />
           <%= f.text_area :introduction,class:"profile_textarea" %>
         </div>
+        <hr size="1px" color="#bbb">
+
       
         <div class="actions">
           <%= f.submit "更新" %>

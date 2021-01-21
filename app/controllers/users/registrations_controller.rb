@@ -75,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
  
   end
  
-  def profile_update
+  def 
     params.require(:user).permit(:name, :img, :introduction)
     current_user.assign_attributes(account_update_params)
     if current_user.save

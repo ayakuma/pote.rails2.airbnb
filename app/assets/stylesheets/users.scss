@@ -5,7 +5,7 @@
 // == /users/new ==
 
 .create{
-    height: 400px;
+    height: 450px;
     width: 500px;
     border-radius: 5px;
     text-align: center;
@@ -27,10 +27,10 @@
     padding-left: 10px;
 }
 
-.side{
-    display: flex;
-    margin: 10px 0;
-}
+// .side{
+//     display: flex;
+//     margin: 10px 0;
+// }
 
 .create_form p{
     height: 28px;
@@ -61,10 +61,31 @@
     opacity: .8;
 }
 
+
+
 .login{
     color: #4B8FE2;
     text-decoration: none;
     font-size: 15px;
+}
+
+.signup_field{
+    display: flex;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.signup_textfield{
+    width: 300px;
+    height: 30px;
+    padding-left: 10px;
+    margin: 10px 0;
+}
+
+.create  em{
+    font-size: 12px;
+    // display: flex;
+    align-items: center;
 }
 
 // == prorfile_sidemenu ==
@@ -95,7 +116,7 @@
     color: #4B8FE2;
 }
 
-// ==== users/edit.html ====
+// ==== users/edit ボックス====
 
 .container{
     display: flex;
@@ -115,32 +136,35 @@
     width: 800px;
 }
 
+// == users/show ==
+
 .profile_box hr {
     margin: 20px 0;
 }
 
-// .show_container{
-    // margin: 30px 0;
-// }
+.show_pass h4{
+    display: inline-block;
+    width: 200px;
+}
 
-// .show_pass h4{
-//     display: inline-block;
-//     width: 200px;
-// }
+.show_pass p{
+    display: inline-block;
+}
 
-// .show_pass p{
-//     display: inline-block;
-// }
+// == edit,backボタン ==
 
-.edit_btn a {
+.edit_btn > a {
     color: #fff;
     text-decoration: none;
-    padding: 5px 70px;
+    padding: 5px 90px;
     background-color: #4B8FE2;
     border-radius: 5px;
     text-align: center;
     line-height: 40px;
     transition: .2s;
+    width: 30px;
+    margin: 0 auto;
+    font-size: 15px;
 }
 
 .edit_btn a:hover{
@@ -149,9 +173,8 @@
 
 .back_btn > a{
     font-size: 13px;
-    margin: 20px auto;
+    margin: 10px auto;
     width: 30px;
-    padding: 0 0 0 5px;
     text-align: center;
 }
 
@@ -160,6 +183,7 @@
 }
 
 .actions input {
+    font-size: 15px;
     margin: 20px 0;
     color: #fff;
     text-decoration: none;
@@ -178,7 +202,7 @@
 }
 
 
-// img
+//  == profile img ==
 
 .icon{
     height: 100px;
@@ -186,7 +210,7 @@
 }
 
 
-// == device ==
+// == edit form ==
 
 .field{
     display: flex;
@@ -198,7 +222,6 @@
     display: flex;
     font-size: 12px;
     align-items: center;
-    // padding-left: 30px;
 }
 
 .profile_label{
@@ -220,11 +243,9 @@
 }
 
 .profile_textfield{
-    // display: inline-block;
     width: 500px;
     height: 30px;
     padding-left: 10px;
-    // margin: 20px 0;
 }
 
 .profile_textarea{

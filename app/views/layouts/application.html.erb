@@ -15,46 +15,69 @@
 
   <body>
     <header>
-    <div class="header_left">
-      <%= link_to image_tag("logo.png", class:"img"),"/" %>
+    <div class="header">
+      <div class="header_left">
+        <%= link_to image_tag("logo.png", class:"img"),"/" %>
 
-      <form class="form1"  action="/" method="get">
-        <i class="fas fa-map-marker-alt"></i>
-        <input id="sbox1" name="area" type="text" placeholder="エリア検索" class="index_input"></form>
+        <form class="form1"  action="/" method="get">
+          <i class="fas fa-map-marker-alt"></i>
+          <input id="sbox1" name="area" type="text" placeholder="エリア検索" class="index_input"></form>
 
-      <form class="form1"  action="/" method="get">
-        <i class="fas fa-search"></i>
-        <input id="sbox2" name="keyword" type="text" placeholder="キーワード検索" class="index_input"></form>
+        <form class="form1"  action="/" method="get">
+          <i class="fas fa-search"></i>
+          <input id="sbox2" name="keyword" type="text" placeholder="キーワード検索" class="index_input"></form>
+      </div>
     </div>
+
+    <% if user_signed_in? %>
+    <%# 🍔 %>
+    <div class="hamburger-menu">
+        <input type="checkbox" id="menu-btn-check">
+        <label for="menu-btn-check" class="menu-btn">
+            <% if current_user.img? %>
+                <%= image_tag current_user.img.url ,:height=>"40", class:"usericon" %>
+            <% else %>
+                <%= image_tag "default.png" ,:height=>"40" , class:"usericon" %>
+            <% end %></label>
+
+    <!--ここからメニュー-->
+        <div class="menu-content">            
+          <ul>
+            <li>
+              <%= link_to("一覧(仮)","/users/index") %>
+            </li>
+            <li>
+              <%= link_to("設定","/users/show") %>
+            </li>
+            <li>
+              <%= link_to("ログアウト",destroy_user_session_path, method: :delete) %>
+            </li>
+          </ul>
+        </div>
+    </div>
+        <!--ここまでメニュー-->
+    <%# 🍔 %>
+            <%else%>
+            <div class="header_right">
+              <ul>
+                <li>
+                  <%= link_to("ログイン",new_user_session_path) %>
+                </li>
+                <li>
+                  <%= link_to("登録する",new_user_registration_path) %>
+                </li>
+              </ul>
+            </div>
+            <% end %>
 
 
 
     <div class="header_right">
-      <ul>
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to("一覧","/users/index") %>
-        </li>
-        <li>
-          <%= link_to("show","/users/show") %>
-        </li>
-        <li>
-          <%= link_to("ログアウト",destroy_user_session_path, method: :delete) %>
-        </li>
-        <%else%>
-        <li>
-          <%= link_to("ログイン",new_user_session_path) %>
-        </li>
-        <li>
-          <%= link_to("登録する",new_user_registration_path) %>
-        </li>
-        <% end %>
-      </ul>
     </div>
 
 
     </header>
-         <% if flash.notice %>
+         <% if flash.notice  %>
           <p class="notice"><%= flash.notice%></p>
          <%end%>
       <%= yield %>

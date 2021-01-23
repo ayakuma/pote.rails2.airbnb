@@ -1,0 +1,19 @@
+<h1>ルーム詳細</h1>
+
+<%= image_tag @room.image.url ,class: "icon"%> <br>
+<%= current_user.name %>
+<%= current_user.introduction %> <br>
+
+<%= @room.name %>
+<%= simple_format @room.introduction %>
+<%= @room.price %> <br>
+<%= @room.user.name %><br>
+<%= @room.address %>
+
+<% if @room.user.id == current_user.id %>
+  <%= link_to "編集",edit_room_path(@room) %>
+<% end %>
+
+<%= link_to user_path(@room.user) do %>
+  <%= @room.user.name %>さんのページへ
+<% end %>

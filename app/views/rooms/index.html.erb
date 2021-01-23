@@ -1,0 +1,19 @@
+<h1>ルーム一覧</h1>
+<p>Find me in app/views/rooms/index.html.erb</p>
+
+
+<h2>ルーム一覧</h2>
+
+<%= @rooms.each do |room| %>
+
+  <%= image_tag room.image.url ,class: "icon"%> <br>
+  <%= current_user.name %>
+  <%= current_user.introduction %> <br>
+
+  <%= room.name %>
+  <%= simple_format room.introduction %>
+  <%= room.price %> <br>
+  <%= room.user.name %><br>
+  <%= room.address %>
+
+<% end %>

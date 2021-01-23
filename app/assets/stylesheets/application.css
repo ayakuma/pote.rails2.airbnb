@@ -14,30 +14,38 @@
  *= require_self
  */
 
+
  body {
   margin: 0;
-}
-
-header{
-  background-color: #000000;
-  color: #ffffff;
-  margin: 0;
-  display: flex;
-}
-
-.header{
-  background-color: #000000;
-  color: #ffffff;
-  margin: 0;
+  /* color: #515151; */
+  color: #222222;
 }
 
 .header{
   display: flex;
   position: relative;
-  /* z-index: 100; */
+  z-index: 100;
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
 }
 
-.img{
+header {
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  text-align: center;
+}
+
+.user_name{
+  margin-right: 100px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.top_logo{
   height: 40px;
   display: flex;
   margin-left: 50px;
@@ -69,12 +77,11 @@ header{
   background-color: #AED8E6;
   color: #fff;
   text-align: center;
-  fonts: 15px;
+  font-size: 13px;
 }
 
 
-//   ログイン前
-
+   /* ログイン前 */
 
 .header_right{
   margin: 0 0 0 auto;
@@ -115,7 +122,8 @@ header{
 
 .usericon{
   border-radius: 15px;
-  z-index: 101;
+  z-index: 110;
+  align-items: center;
 }
 
 .menu-btn{
@@ -128,19 +136,19 @@ header{
   align-items: center;
   cursor: pointer;
   margin-right: 30px;
+  z-index: 70;
 }
 
 #menu-btn-check{
-    display: none;
+  display: none;
 }
 
 .menu-content {
+  position: absolute;
   top: -300px;
   right: 10px;
   background: #fff;
   opacity: .8;
-  position: absolute;
-  z-index: 80;
   width: 200px;
   height: 200px;
   margin-top: 60px;
@@ -177,13 +185,15 @@ header{
 /* ここ🍔まで */
 
 
-
+footer{
+  background-color: #000000;
+  color: #fff;
+  padding: 30px 0;
+}
 
 footer > p{
   text-align: center;
   font-size: 12px;
-  padding: 20px 0 20px 0;
-  margin: 0;
 }
 
 footer > span{

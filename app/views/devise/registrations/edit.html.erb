@@ -10,13 +10,13 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
           <hr size="1px" color="#bbb">
-          <div class="field">
+          <div class="edit_field">
             <%= f.label :name ,class:"profile_label"%><br />
             <%= f.text_field :name, autofocus: true ,class:"profile_textfield"%>
           </div>
 
           <hr size="1px" color="#bbb">
-          <div class="field">
+          <div class="edit_field">
             <%= f.label :email ,class:"profile_label"%><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"profile_textfield"%>
           </div>
@@ -26,7 +26,7 @@
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
           
-          <div class="field">
+          <div class="edit_field">
             <%= f.label :password  ,class:"profile_label"%> 
             <div class="pass_text">
               <%= f.password_field :password, autocomplete: "new-password" ,class:"profile_textfield"%>
@@ -35,13 +35,13 @@
           </div>
 
           <hr size="1px" color="#bbb">
-          <div class="field">
+          <div class="edit_field">
             <%= f.label :password_confirmation ,class:"profile_label"%><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"profile_textfield"%>
           </div>
 
           <hr size="1px" color="#bbb">
-          <div class="field">
+          <div class="edit_field">
             <%= f.label :current_password ,class:"profile_label"%> 
               <div class="pass_text">
               <%= f.password_field :current_password, autocomplete: "current-password" ,class:"profile_textfield"%>

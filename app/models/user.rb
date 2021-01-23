@@ -8,5 +8,6 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 200 } 
 
   mount_uploader :img, ImageUploader
-
+  
+  has_many :rooms, dependent: :destroy
 end

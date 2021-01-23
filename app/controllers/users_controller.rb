@@ -50,5 +50,6 @@ class UsersController < ApplicationController
   def account
     @user = User.find(params[:id])
   end
-
+  # ログイン済ユーザーのみにアクセスを許可する
+  before_action :authenticate_user!
 end

@@ -1,20 +1,32 @@
 <div class="room_show">
-  <h1 fontsize="14">ルーム予約画面</h1>
+  <h1 fontsize="14">ルーム詳細・予約画面</h1>
 
   <div class="d-flex flex-wrap">
 
     <div class="col-sm-8 ">
       <div class="card mb-8">
-        <%= image_tag @room.image.url ,:height=>'300',class:"room_show_img"%>
+        <%= image_tag @room.image.url ,:height=>'300',class:"room_show_img" %>
         <div class="card-body">
-          <% if current_user.img? %>
-            <%= image_tag current_user.img.url ,:height=>"40", class:"usericon" %>
-          <% else %>
-            <%= image_tag "default.png" ,:height=>"40" , class:"usericon" %>
-          <% end %>
-          <div class="room_show_name">
-            <h4 class="card-title"><%= @room.name %></h5>
-            <font size="2",class="card-text",fornsize="2"><%= @room.address %></font><br>
+          <div class="card_title">
+            <% if current_user.img? %>
+              <%= link_to user_path(@room.user) do %>
+              <div class="roomuser_page">
+                <%= image_tag current_user.img.url ,:height=>"40", class:"usericon" %><br>
+                <%= @room.user.name %>
+              </div>
+              <% end %>
+            <% else %>
+              <div class="room.user_page">
+                <%= link_to user_path(@room.user) do %>
+                  <%= image_tag "default.png" ,:height=>"40" , class:"usericon" %>
+                  <%= @room.user.name %>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="room_show_name">
+              <h4 class="card-title"><%= @room.name %></h5>
+              <font size="2",class="card-text",fornsize="2"><%= @room.address %></font><br>
+            </div>
           </div>
           <hr size=".5px" color="#bbb">
           <p class="card-text">  <%= simple_format @room.introduction %></p>
@@ -40,6 +52,12 @@
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+        <% if @room.user.id == current_user.id %>
+          <%= link_to"編集", edit_room_path(@room) ,class:"btn btn-primary"%>
+        <% end %>
+
+
       </div>
     </div>
   </div>

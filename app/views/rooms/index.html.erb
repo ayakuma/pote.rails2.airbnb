@@ -5,14 +5,20 @@
 
 <div class="card-deck">
   <% @rooms.each do |room| %>
-      <div class="col-sm-6 ">
+      <div class="col-sm-6 col-lg-4 col-xl-3">
         <div class="card">
-          <%= image_tag room.image.url ,class:"room_index_img"%>
+          <% if room.image? %>
+            <img src="<%= room.image %>" class="room_index_img">
+          <% else %>
+            <%= image_tag '/default.png', :class=>"room_index_img"%>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= room.name %></h5>
             <p class="card-text">  <%= simple_format room.introduction %></p>
             <p class="card-text">  <%= room.address %></p>
-            <p class="card-text"><small class="text-muted">  <%= room.price %></small></p>
+            <p class="card-text"><small class="text-muted"> <%= number_to_currency(room.price, :unit => "円") %> / 日</small></p>
+              <%= link_to "確認", room ,class:"btn btn-primary"%>
+            <%# <a href= "<% room.id" class="stretched-link"></a>     %> 
           </div>
         </div>
       </div>
@@ -37,7 +43,7 @@
         <% @rooms.each do |room| %>
             <tr>
                 <td><%= room.id %></td>
-                <td><%= image_tag room.image.url , :width => '50'%></td>
+                <td><img src="<%= room.image %>" width="50"></td>
                 <td><%= room.name %></td>
                 <td><%= room.introduction %></td>
                 <td><%= room.address %></td>

@@ -117,16 +117,16 @@ textarea {
 
 // == prorfile_sidemenu ==
 
-.container ul {
+.edit_container ul {
     width: 200px;
-    margin: 0;
+    // margin: 0;
     padding: 0;
     list-style-type: none;
     background-color: #fff;
     border-right: 1px solid #e7e7e7;
 }
 
-.container a {
+.edit_container a {
     display: block;
     margin: 20px 20px;
     padding: 10px 0;
@@ -135,19 +135,20 @@ textarea {
     text-align: center;
 }
 
-.container li a.active {
+.edit_container li a.active {
     color: #4B8FE2;
     border-right: solid 2px #4B8FE2;
 }
-.container li a:hover:not(.active) {
+.edit_container li a:hover:not(.active) {
     color: #4B8FE2;
 }
 
 // ==== users/edit ボックス====
 
-.container{
+.edit_container{
     display: flex;
     background-color: #f5f8f9;
+    margin: 0;
 }
 
 .profile_container{
@@ -182,13 +183,13 @@ textarea {
 .edit_btn > a {
     color: #fff;
     text-decoration: none;
-    padding: 5px 90px;
     background-color: #4B8FE2;
     border-radius: 5px;
     text-align: center;
-    line-height: 40px;
+    line-height: 30px;
     transition: .2s;
-    width: 30px;
+    width: 200px;
+    height: 50px;
     margin: 0 auto;
     font-size: 15px;
 }

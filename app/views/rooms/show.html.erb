@@ -5,13 +5,20 @@
 
     <div class="col-sm-8 ">
       <div class="card mb-8">
-        <%= image_tag @room.image.url ,:height=>'300',class:"room_show_img" %>
+
+        <% if @room.image? %>
+          <%= image_tag @room.image.url ,class:"room_show_img" %>
+        <% else %>
+          <%= image_tag '/default.png', class:"room_show_img"%>
+        <% end %>
+        <%# <%= image_tag @room.image.url :height=>'300',class:"room_show_img" %> 
+
         <div class="card-body">
           <div class="card_title">
             <% if current_user.img? %>
               <%= link_to user_path(@room.user) do %>
               <div class="roomuser_page">
-                <%= image_tag current_user.img.url ,:height=>"40", class:"usericon" %><br>
+                <%= image_tag @room.user.img.url, :height=>"40", class:"usericon" %><br>
                 <%= @room.user.name %>
               </div>
               <% end %>
@@ -36,6 +43,9 @@
 
     <div class="col-sm-4">
       <div class="room_show_container">
+      <%# ここから予約画面へ飛ばすフォーム %>
+        <%= form_for @room do |f| %>
+        <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
         <form>
           <h5>
             <%= number_to_currency(@room.price, :unit => "円") %> / 日
@@ -52,9 +62,12 @@
 
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <%# ここまで予約画面へ飛ばすフォーム %>
+
 
         <% if @room.user.id == current_user.id %>
           <%= link_to"編集", edit_room_path(@room) ,class:"btn btn-primary"%>
+          <%= link_to"削除", room_path(@room), method: :delete ,data:{confirm:"削除しますか？"},class:"btn btn-primary"%>
         <% end %>
 
 

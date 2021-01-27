@@ -1,34 +1,31 @@
-<div class="create">
-  <h4>予約ページ</h4>
-
-  <%= render "shared/error", obj: @post %>
+<h2>予約確認画面</h2>
 
 
   <div class="create_form">
 
-    <%= form_for @post, url: posts_confirm_path do |f| %>
-
-
+  <%= form_for @post do |f| %>
     <div class="signup_field">
       <%= f.label :startday ,class:"profile_label"%>
-      <%= f.date_field :startday %>
+      <%= f.date_field :startday, as: :hidden %>
     </div>
     <div class="signup_field">
       <%= f.label :endday ,class:"profile_label"%>
-      <%= f.date_field :endday %>
+      <%= f.date_field :endday, as: :hidden  %>
     </div>
     <div class="signup_field">
       <%= f.label :peoples ,class:"profile_label"%>
-      <%= f.text_field :peoples %>
+      <%= f.text_field :peoples, as: :hidden  %>
     </div>
     <div class="signup_field">
       <%= f.label :fee ,class:"profile_label"%>
-      <%= f.text_field :fee %>
+      <%= f.text_field :fee, as: :hidden  %>
     </div>
 
     <div class="actions">
       <%= f.submit "予約する" %>
     </div>
+
+    <div class="actions">
+      <%= f.submit "戻る", name: :back, class: "btn btn-secondary"%>
+    </div>
   <% end %>
-  </div>
-</div>

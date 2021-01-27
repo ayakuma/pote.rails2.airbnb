@@ -14,14 +14,20 @@ Rails.application.routes.draw do
     resources :posts
   end 
 
-  get 'post/new' # 入力画面
-  post 'post/confirm' # 確認画面
-  post 'post/back' # 確認画面から「入力画面に戻る」をクリックしたとき
-  post 'post/complete' # 完了画面
+  get 'posts/new' # 入力画面
+  post 'posts/confirm' # 確認画面
+  post 'posts/back' # 確認画面から「入力画面に戻る」をクリックしたとき
+  post 'posts/complete' # 完了画面
 
   devise_scope :user do
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
+  end
+
+  resources :posts, only: [:new, :create, :show] do
+    collection do
+      post :confirm
+    end
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

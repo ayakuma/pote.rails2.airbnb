@@ -13,7 +13,7 @@
             <th>チェックイン</th>
             <th>チェックアウト</th>
             <th>人数</th>
-            <th>予約日</th>
+            <th>予約確定日</th>
             <th>確認</th>
             <th>編集</th>
             <th>キャンセル</th>
@@ -23,14 +23,17 @@
         <% @posts.each do |post| %>
             <tr>
               <td><%= post.id %></td>
-              <td><%= post.startday.strftime('%Y月%m日%d日') %></td>
-              <td><%= post.endday.strftime('%Y月%m日%d日') %></td>
-              <td><%= post.peoples %></td>
+              <td><%= post.id %></td>
+              <td><%= post.id %></td>
+              <td><%= post.id %></td>
               <td><%= number_to_currency(post.fee, :unit => "円") %></td>
+              <td><%= post.startday.strftime('%Y月%m日%d日') %></td>
+              <td><%= post.endday.strftime('%Y月%m日%d日') %></td> 
+              <td><%= number_to_currency(post.peoples, :unit => "名様") %></td>
               <td><%= post.updated_at.strftime('%Y月%m日%d日') %></td>
               <td><%= link_to "確認", post, class:"textdeco"%></td>
               <td><%= link_to "編集", [:edit, post], class:"textdeco" %></td>
-              <td><%= link_to "削除", post, method: :delete, data:{confirm:"本当に削除しますか？"}, class:"textdeco" %></td>
+              <td><%= link_to "キャンセル", post, method: :delete, data:{confirm:"本当に削除しますか？"}, class:"textdeco" %></td>
 
               </div>
             </tr>

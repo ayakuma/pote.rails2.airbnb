@@ -9,3 +9,9 @@ ja:
         password: パスワード
         introduction: 一言紹介
         img: 画像
+      post:
+        startday: チェックイン日
+        endday: チェックアウト日
+        peoples: 人数
+        fee: 合計金額
+

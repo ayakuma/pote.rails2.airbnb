@@ -7,20 +7,23 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
-  
-  def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
-  end
 
   def confirm
     @post = Post.new(post_params)
-    if @post.invalid?
-			render :new
-		end
+    render :new if @post.invalid?
   end
+
+  
+  def create
+    redirect_to posts_confirm_path
+  end
+
+  # def confirm
+  #   @post = Post.new(post_params)
+  #   if @post.invalid?
+	# 		render :new
+	# 	end
+  # end
 
   def complete
 		Post.create!(post_params)
@@ -35,11 +38,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
 
   private
   def post_params
-    params.require(:post).permit(:startday, :endday, :peoples ,:fee, :user_id)    
+    params.require(:post).permit(:startday, :endday, :peoples ,:fee, :user_id, :room_id)    
   end
 end

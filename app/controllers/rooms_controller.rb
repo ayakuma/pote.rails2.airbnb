@@ -20,6 +20,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+
   end
 
   def edit
@@ -32,6 +33,12 @@ class RoomsController < ApplicationController
     redirect_to room_path(@room)
   end
 
+  def confirm
+    @room = Room.find(params[:id])
+    @room.confirm(room_params)
+    redirect_to "/rooms/confirm"
+  end
+
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
@@ -40,7 +47,7 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:name, :introduction, :price ,:address ,:image )
+    params.require(:room).permit(:name, :introduction, :price, :address, :image, :startday, :endday, :peoples, :fee)
     
   end
 end

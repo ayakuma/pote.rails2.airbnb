@@ -43,25 +43,27 @@
 
     <div class="col-sm-4">
       <div class="room_show_container">
-      <%# ここから予約画面へ飛ばすフォーム %>
+        <%# ここから予約画面へ飛ばすフォーム %>
         <%= form_for @room do |f| %>
-        <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
-        <form>
+          Room.id:<%= @room.id %>
           <h5>
             <%= number_to_currency(@room.price, :unit => "円") %> / 日
           </h5>
             <hr size=".5px" color="#bbb">
           <div class="form-group">
-            <label for="exampleInputEmail1">開始日</label>
-            <input type="date" class="form-control" id="exampleInputstartday" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">終了日</label>
-            <input type="date" class="form-control" id="exampleInputendday" placeholder="Password">
-          </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+              <%= f.label :startday%>
+              <%= f.date_field :startday ,class:"profile_textfield form-control" %>
+
+              <%= f.label :endday%>
+              <%= f.date_field :endday ,class:"profile_textfield form-control" %>
+
+              <%= f.label :peoples%>
+              <%= f.text_field :peoples ,class:"profile_textfield form-control" %>
+
+            <button type="submit" class="btn btn-primary">予約確認へ進む</button>
+          </div>
+        <% end %>
         <%# ここまで予約画面へ飛ばすフォーム %>
 
 
@@ -75,4 +77,3 @@
     </div>
   </div>
 </div>
-

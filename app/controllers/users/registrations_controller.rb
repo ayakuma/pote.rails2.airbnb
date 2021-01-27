@@ -62,7 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_update_path_for(resource)
     params.require(:user).permit(:name, :img, :introduction)
-
     current_user.assign_attributes(account_update_params)
     if current_user.save
 	  redirect_to profile_edit_path, notice: 'プロフィールを更新しました'

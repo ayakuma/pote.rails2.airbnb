@@ -28,12 +28,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    # if params[:img]
-    #   @user.img = "#{@user.id}.jpg"
-    #   image = params[:img]
-    #   File.binwrite("/#{@user.img}", image.read)
-    # end
-
     if @user.update(email: params[:email], password: params[:password],name: params[:name],img: params[:img], introduction: params[:introduction])
       redirect_to("/users/index")
     else

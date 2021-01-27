@@ -10,4 +10,5 @@ class User < ApplicationRecord
   mount_uploader :img, ImageUploader
   
   has_many :rooms, dependent: :destroy
+  has_many :posts, dependent: :destroy
 end

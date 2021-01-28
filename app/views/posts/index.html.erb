@@ -25,11 +25,9 @@
         <% @posts.each do |post| %>
             <tr>
               <td><%= current_user.name %></td>
-              <td><%= post.id %></td>
-              <td><%= post.id %></td>
-              <td><%= post.id %></td>
-              <td><%= post.fee %></td>
-              <td><%= post. %></td>
+              <td><%= post.room_id %></td>
+              <td><%= post.room_id %></td>
+              <td><%= post.room_id %></td>
               <td><%= number_to_currency(post.endday.to_date - post.startday.to_date).to_i * post.fee %>円</td>
               <td><%= (post.endday.to_date - post.startday.to_date).to_i  %>日間</td> 
               <td><%= post.startday.strftime('%Y月%m日%d日') %></td>
@@ -46,9 +44,3 @@
       </tbody>
   </table>
 </div>
-
-        <% @rooms.each do |room| %>
-          <td><img src="<%= room.image %>" width="50"></td>
-          <td><%= room.name %></td>
-          <td><%= room.introduction %></td>
-        <% end %>

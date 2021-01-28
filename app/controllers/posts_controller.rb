@@ -11,14 +11,14 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
-
+    @room = Room.new(post_params)
   end
 
   def create
     @post = Post.new(post_params)
-    @room = Room.find(params[:id])
+    # @room = Room.find(params[:id])
     @post.user_id = current_user.id
-    # @post.room_id = current_room.id
+    # @post.room_id = @room.id 
     if @post.save
       redirect_to posts_path
     else
@@ -26,9 +26,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  # def show
+  #   @post = Post.find(params[:id])
+  # end
 
 
   def edit

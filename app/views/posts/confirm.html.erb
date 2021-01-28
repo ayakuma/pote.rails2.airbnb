@@ -1,7 +1,6 @@
 <div class="create">
 
-
-  <h4>確認画面</h4><br>
+  <h4>確認画面</h4>
   <%= render "shared/error", obj: @post %>
 
   <div class="create_form">
@@ -9,9 +8,10 @@
       <%= form_for @post do |f| %>
           <div class="form-group">
 
-          <h5>合計金額　　<%= @post.fee = number_to_currency(post.room.price * (post.endday.to_date - post.startday.to_date)) %>円 / 日</h5>
-          <%= post.room.name %> <br>
           <hr size=".5px" color="#bbb">
+
+              <p><%= @post.room_id ,class:"profile_textfield form-control",readonly: true %></p>
+              <p><%= @post.room_id.name ,class:"profile_textfield form-control",readonly: true %></p>
 
               <%= f.label :startday%>
               <%= f.date_field :startday ,class:"profile_textfield form-control",readonly: true %>
@@ -23,10 +23,9 @@
               <%= f.text_field :peoples ,class:"profile_textfield form-control",readonly: true %>
               
               <%= f.label :fee %>
-              <%= f.text_field :fee = (post.room.price * (post.endday.to_date - post.startday.to_date)) ,class:"profile_textfield form-control",readonly: true %>
+              <%= f.text_field :fee = (post.room_id.price * (post.endday.to_date - post.startday.to_date)) ,class:"profile_textfield form-control",readonly: true  ,class:"profile_textfield form-control" %>
 
             </div>
-
 
         <div class="actions">
           <%= f.submit "予約する" %>

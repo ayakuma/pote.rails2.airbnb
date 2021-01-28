@@ -9,6 +9,7 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @post = Post.new
   end
   
   def create
@@ -20,7 +21,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-
+    @post = Post.new
   end
 
   def edit
@@ -31,12 +32,6 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.update(room_params)
     redirect_to room_path(@room)
-  end
-
-  def confirm
-    @room = Room.find(params[:id])
-    @room.confirm(room_params)
-    redirect_to "/rooms/confirm"
   end
 
   def destroy

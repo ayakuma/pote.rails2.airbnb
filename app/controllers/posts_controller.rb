@@ -6,31 +6,28 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @room = Room.find(params[:id])
   end
 
   def confirm
     @post = Post.new(post_params)
-    render :new if @post.invalid?
+    @room = Room.find(params[:id])
   end
 
-  
   def create
-    redirect_to posts_confirm_path
+    @post = Post.new(post_params)
+    @room = Room.find(params[:id])
+    @post.user_id = current_user.id
+    # @post.room_id = current_room.id
+    if @post.save
+      redirect_to posts_path
+    else
+      render :confirm
+    end
   end
-
-  # def confirm
-  #   @post = Post.new(post_params)
-  #   if @post.invalid?
-	# 		render :new
-	# 	end
-  # end
-
-  def complete
-		Post.create!(post_params)
-	end
-
 
   def show
+    @post = Post.find(params[:id])
   end
 
 
@@ -46,6 +43,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:startday, :endday, :peoples ,:fee, :user_id, :room_id)    
+    params.require(:post).permit(:startday, :endday, :peoples ,:fee)    
   end
 end

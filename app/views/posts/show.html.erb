@@ -1,2 +1,40 @@
 <h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="edit_container">
+    
+    <div class="profile_container">
+        <div class="profile_box">
+
+            <h2>予約詳細</h2>
+
+
+            <div class="show_container">
+                <hr size="1px" color="#e7e7e7">
+                <div class="show_pass">
+                    <h4>メールアドレス</h4>
+                    <p><%= @post.startday %></p>
+                </div>
+                <hr size="1px" color="#e7e7e7">
+                <div class="show_pass">
+                    <h4>チェックイン</h4>
+                    <p><%= @post.startday %></p>
+                </div>
+                <hr size="1px" color="#e7e7e7">
+                <div class="show_pass">
+                    <h4>チェックアウト</h4>
+                    <p><%= @post.endday %></p>
+                </div>
+                <hr size="1px" color="#e7e7e7">
+                <div class="show_pass">
+                    <h4>人数</h4>
+                    <p><%= @post.peoples %></p>
+                </div>
+                <hr size="1px" color="#e7e7e7">
+                <div class="show_pass">
+                    <h4>金額</h4>
+                    <p><%= @post.fee %></p>
+                </div>
+                <hr size="1px" color="#e7e7e7">
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
-    @room = Room.find(params[:id])
+
   end
 
   def create

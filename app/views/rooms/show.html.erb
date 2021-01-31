@@ -43,13 +43,15 @@
     <div class="col-sm-4">
       <div class="room_show_container">
         <%# ここから予約画面へ飛ばすフォーム %>
-        <%= form_for @post ,url: posts_confirm_path do |f| %>
-          Room.id:<%= @room.id %>
+        <%= form_for @post ,url: "/rooms/#{@room.id}/posts/confirm" do |f| %>
+          Room.id:<%= @room.id %> <br>
+          Room.price:<%= @price %> 
           <h5>
             <%= number_to_currency(@room.price, :unit => "円") %> / 日
           </h5>
             <hr size=".5px" color="#bbb">
           <div class="form-group">
+
 
               <%= f.label :startday%>
               <%= f.date_field :startday ,class:"profile_textfield form-control" %>
@@ -58,7 +60,9 @@
               <%= f.date_field :endday ,class:"profile_textfield form-control" %>
 
               <%= f.label :peoples%>
-              <%= f.text_field :peoples ,class:"profile_textfield form-control" %>
+              <%= f.text_field :peoples ,class:"profile_textfield form-control" %> 
+             
+              <br>
 
             <button type="submit" class="btn btn-primary">予約確認へ進む</button>
           </div>

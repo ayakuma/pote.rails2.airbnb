@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_100004) do
+ActiveRecord::Schema.define(version: 2021_01_29_135850) do
 
   create_table "posts", force: :cascade do |t|
     t.date "startday"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_100004) do
     t.integer "user_id"
     t.string "name"
     t.text "introduction"
-    t.string "price"
+    t.integer "price"
     t.string "integer"
     t.string "address"
     t.string "image"

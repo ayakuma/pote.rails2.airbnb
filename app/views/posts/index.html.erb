@@ -28,8 +28,7 @@
               <td><%= post.room_id %></td>
               <td><%= post.room_id %></td>
               <td><%= post.room_id %></td>
-              <td><%= number_to_currency(post.endday.to_date - post.startday.to_date).to_i * post.fee %>円</td>
-              <td><%= (post.endday.to_date - post.startday.to_date).to_i  %>日間</td> 
+              <td><%= post.fee %>円</td>
               <td><%= post.startday.strftime('%Y月%m日%d日') %></td>
               <td><%= post.endday.strftime('%Y月%m日%d日') %></td> 
               <td><%= number_to_currency(post.peoples, :unit => "名様") %></td>

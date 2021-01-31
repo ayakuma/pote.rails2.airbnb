@@ -6,26 +6,29 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @room = Room.find(params[:id])
   end
-
+  
   def confirm
     @post = Post.new(post_params)
-    @room = Room.new(post_params)
+    
   end
-
+  
   def create
     @post = Post.new(post_params)
-    # @room = Room.find(params[:id])
-    @post.user_id = current_user.id
-    # @post.room_id = @room.id 
+    @post.user_id = current_user.id 
+    # @post.room_id = Room.find(params[:id])
+    # @post.room_id = room.room_id
+    # binding.pry
+    # # @post.room_id = @room.id
+    # # # @room = Room.find(params[:id])
+    # # # @post.room_id = room.id
     if @post.save
       redirect_to posts_path
     else
       render :confirm
     end
   end
-
+  
   # def show
   #   @post = Post.find(params[:id])
   # end
@@ -44,5 +47,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:startday, :endday, :peoples ,:fee)    
+  end
+
+  def room_params
+    params.require(:room).permit(:name, :introduction, :price, :address, :image)
   end
 end

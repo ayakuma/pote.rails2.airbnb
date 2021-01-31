@@ -122,7 +122,7 @@ header {
 
 .usericon{
   border-radius: 15px;
-  z-index: 110;
+  /* z-index: 110; */
   align-items: center;
 }
 
@@ -145,12 +145,12 @@ header {
 
 .menu-content {
   position: absolute;
-  top: -300px;
+  top: -400px;
   right: 10px;
   background: #fff;
   opacity: .8;
   width: 200px;
-  height: 200px;
+  height: 300px;
   margin-top: 60px;
   transition: all 0.3s;
   border: none;
@@ -170,9 +170,7 @@ header {
 }
 
 .menu-content ul li a{
-    /* // display: block; */
     font-size: 15px;
-    /* // box-sizing: border-box; */
     color: #000000;
     text-decoration: none;
     position: relative;

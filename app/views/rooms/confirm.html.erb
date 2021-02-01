@@ -1,11 +1,11 @@
 <div class="create">
 
-  <h4>確認画面</h4>
+  <h4>room/確認画面</h4>
   <%= render "shared/error", obj: @post %>
 
   <div class="create_form">
 
-      <%= form_for @post do |f| %>
+      <%= form_for @post(@room) do |f| %>
           <div class="form-group">
 
           <h5>

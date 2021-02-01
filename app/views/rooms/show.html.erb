@@ -42,7 +42,8 @@
 
     <div class="col-sm-4">
       <div class="room_show_container">
-        <%# ここから予約画面へ飛ばすフォーム %>
+
+        <%# ここから予約画面へ飛ばすフォーム %>   
         <%= form_for @post ,url: "/rooms/#{@room.id}/posts/confirm" do |f| %>
         <%= render "shared/error", obj: @post %>
           Room.id:<%= @room.id %> <br>

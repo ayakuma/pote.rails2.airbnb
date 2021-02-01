@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get "/" => 'rooms#top'
   get 'rooms/index'
   get "users/index" => "users#index"
-  post "rooms/:id/posts/confirm" => "rooms#confirm"
+  # post "rooms/:id/posts/confirm" => "rooms#confirm"
+  post "rooms/:id/posts/confirm" => "posts#confirm"
 
   resources :users
   resources :rooms
@@ -15,9 +16,11 @@ Rails.application.routes.draw do
     resources :posts
   end 
 
-  get 'posts/new' # 入力画面
-  # post 'posts/confirm' # 確認画面
-  post 'posts/back' # 確認画面から「入力画面に戻る」をクリックしたとき
+  # resources :posts, only: [:new, :create, :show] do
+  #   collection do
+  #     post :confirm
+  #   end
+  # end
 
   devise_scope :user do
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'

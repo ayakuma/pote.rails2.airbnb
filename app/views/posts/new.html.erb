@@ -3,32 +3,4 @@
 
   <%= render "shared/error", obj: @post %>
 
-
-  <div class="create_form">
-
-    <%= form_for @post, url: posts_confirm_path do |f| %>
-
-
-    <div class="signup_field">
-      <%= f.label :startday ,class:"profile_label"%>
-      <%= f.date_field :startday %>
-    </div>
-    <div class="signup_field">
-      <%= f.label :endday ,class:"profile_label"%>
-      <%= f.date_field :endday %>
-    </div>
-    <div class="signup_field">
-      <%= f.label :peoples ,class:"profile_label"%>
-      <%= f.text_field :peoples %>
-    </div>
-    <div class="signup_field">
-      <%= f.label :fee ,class:"profile_label"%>
-      <%= f.text_field :fee %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "予約する" %>
-    </div>
-  <% end %>
-  </div>
 </div>

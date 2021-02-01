@@ -20,6 +20,13 @@ class RoomsController < ApplicationController
     @post.room_id = @room.id
     @post.fee = @room.price * @post.peoples * (@post.endday.to_date - @post.startday.to_date).to_i
     render :confirm if @post.invalid?
+
+    # if @post.save
+    #   redirect_to posts_path
+    # else
+    #   render :confirm
+    # end
+
     # @post.room_name = @room.name
     # @post.room_img = @room.img
     # render :confirm if @post.invalid?
@@ -30,6 +37,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @room.save
     redirect_to room_path(@room)
+
     @post = Post.new(post_params)
     @post.user_id = current_user.id 
     @room = Room.find(params[:id])

@@ -8,30 +8,24 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   
-  def confirm
-    @post = Post.new(post_params)
-    
-  end
+  # def confirm
+    # @post = Post.new(post_params)
+  # end
   
   def create
     @post = Post.new(post_params)
+    @room = Room.find(params[:id])
     @post.user_id = current_user.id 
-    # @post.room_id = Room.find(params[:id])
-    # @post.room_id = room.room_id
+    @post.room_id = Room.find(params[:id])
+    @post.room_id = @room.id
     # binding.pry
-    # # @post.room_id = @room.id
-    # # # @room = Room.find(params[:id])
-    # # # @post.room_id = room.id
-    if @post.save
-      redirect_to posts_path
-    else
-      render :confirm
-    end
+    @post.save
+    redirect_to posts_path
   end
   
-  # def show
-  #   @post = Post.find(params[:id])
-  # end
+  def show
+    @post = Post.find(params[:id])
+  end
 
 
   def edit

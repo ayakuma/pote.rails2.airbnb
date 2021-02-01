@@ -4,14 +4,13 @@
   <%= render "shared/error", obj: @post %>
 
   <div class="create_form">
-              <%= @post.fee %>
 
       <%= form_for @post do |f| %>
           <div class="form-group">
 
           <h5>
-            <%# ユーザー名:<%= @post.user.name %> <br> %>
-            <%# ルームID:<%= @post.room_id %> %>
+            ユーザー名：<%= @post.user.name  %><br>
+            ルームID：<%= @post.room_id %>
           </h5>
 
             <hr size=".5px" color="#bbb">

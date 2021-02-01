@@ -1,1 +1,10 @@
-/
+<div class="create">
+
+  <h6>予約に失敗しました。 <br> 初めからやり直してください。</h6>
+  <%= render "shared/error", obj: @post %>
+
+  <div class="edit_btn">
+      <%= link_to("予約画面に戻る",room_path)%>
+  </div>
+
+</div>

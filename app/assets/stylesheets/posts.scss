@@ -47,9 +47,31 @@
 .posts_tbody a{
   color: #222222;
   text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
 }
 .posts_tbody a:hover{
   color: #222222;
   text-decoration: none;
   opacity: .8;
+}
+
+.confirm{
+  display: none;
+}
+
+.form-group > label{
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+}
+
+.posts_index_title{
+  font-size: 12px;
+  text-align: center;
+}
+
+.posts_tbody {
+  font-size: 13px;
+  text-align: center;
 }

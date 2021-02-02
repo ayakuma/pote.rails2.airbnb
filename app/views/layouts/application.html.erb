@@ -20,12 +20,12 @@
 
           <i class="fas fa-map-marker-alt form1"></i>
           <%= search_form_for @search do |f| %>        
-              <%= f.text_field :address_cont, class: "form-control",placeholder: 'エリア検索',class:"index_input" %>
+              <%= f.text_field :address_cont, placeholder: 'エリア検索',class:"index_input form-control" %>
           <% end %>
 
           <i class="fas fa-search form1"></i>
           <%= search_form_for @search do |f| %>
-              <%= f.text_field :name_or_address_or_introduction_cont, class: "form-control",placeholder: 'キーワード検索',class:"index_input" %>
+              <%= f.text_field :name_or_address_or_introduction_cont, class: "form-control",placeholder: 'キーワード検索',class:"index_input form-control" %>
           <% end %>
         </div>
 

@@ -2,6 +2,7 @@
   <h4>ルーム登録ページ</h4>
 
   <div class="create_form">
+  <%= render "shared/error", obj: @room %>
 
   <%= form_for @room do |f| %>
     <div class="signup_field">

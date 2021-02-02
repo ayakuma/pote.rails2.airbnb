@@ -9,7 +9,14 @@ ja:
         password: パスワード
         introduction: 一言紹介
         img: 画像
+      room:
+        name: ルーム名
+        address: 住所
+        price: 金額/1人、1泊
+        introduction: 紹介文
+        image: ルーム画像
       post:
+        room_name: ルーム名
         startday: チェックイン日
         endday: チェックアウト日
         peoples: 人数

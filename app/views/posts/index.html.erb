@@ -2,12 +2,12 @@
 
 <h2>予約一覧</h2>
 
-<table> 
+<table class="table table-striped"> 
     <thead>
         <tr>
             <th>予約者</th>
-            <th>ルーム画像</th>
             <th>ルーム名</th>
+            <th>ルーム画像</th>
             <th>ルーム紹介</th>
             <th>合計金額</th>
             <th>宿泊日数</th>
@@ -20,14 +20,26 @@
             <th>キャンセル</th>
         </tr>
     </thead>
-    <tbody>
 
+    <tbody class="posts_tbody">
         <% @posts.each do |post| %>
             <tr>
-              <td><%= current_user.name %></td>
-              <td><%= post.room_id %></td>
-              <td><%= post.room_id %></td>
-              <td><%= post.room_id %></td>
+              <td class="posts"><%= current_user.name %>様</td>
+              <td><%= link_to post.room_name,"/rooms/#{post.room_id}"%></td>
+              
+              <td>
+              <% if post.room_image? %>
+              <%= link_to"/rooms/#{post.room_id}" do %>
+                <%= image_tag post.room_image, class:"post_show_img" %>
+              <% end %>
+              <% else %>
+              <%= link_to"/rooms/#{post.room_id}" do %>
+                <%= image_tag '/default.png', class:"post_show_img"%>
+              <% end %>
+              <% end %>
+              </td>
+
+              <td><%= link_to post.room_introduction, "/rooms/#{post.room_id}" %></td>
               <td><%= post.fee %>円</td>
               <td><%= (post.endday.to_date - post.startday.to_date).to_i  %>日間</td> 
               <td><%= post.startday.strftime('%Y月%m日%d日') %></td>
@@ -36,7 +48,7 @@
               <td><%= post.updated_at.strftime('%Y月%m日%d日') %></td>
               <td><%= link_to "確認", post, class:"textdeco"%></td>
               <td><%= link_to "編集", [:edit, post], class:"textdeco" %></td>
-              <td><%= link_to "キャンセル", post, method: :delete, data:{confirm:"本当に削除しますか？"}, class:"textdeco" %></td>
+              <td><%= link_to "キャンセル", post, method: :delete, data:{confirm:"本当にキャンセルしますか？"}, class:"textdeco" %></td>
 
               </div>
             </tr>

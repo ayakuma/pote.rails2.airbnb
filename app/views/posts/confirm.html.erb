@@ -8,13 +8,20 @@
       <%= form_for @post do |f| %>
           <div class="form-group">
 
-          <h5>
-            ユーザー名：<%= @post.user.name  %><br>
-            ルームID：<%= @post.room_id %>
-          </h5>
-
             <hr size=".5px" color="#bbb">
 
+
+              <%= f.label :room_id %>
+              <%= f.text_field :room_id ,class:"profile_textfield form-control",readonly: true %>
+
+              <%= f.label :room_name %>
+              <%= f.text_field :room_name ,class:"profile_textfield form-control",readonly: true %>
+
+              <%= f.label :room_image %>
+              <%= f.text_field :room_image ,class:"profile_textfield form-control",readonly: true %>
+
+              <%= f.label :room_introduction %>
+              <%= f.text_field :room_introduction ,class:"profile_textfield form-control",readonly: true %>
 
               <%= f.label :startday%>
               <%= f.date_field :startday ,class:"profile_textfield form-control",readonly: true %>
@@ -35,9 +42,9 @@
           <%= f.submit "予約する" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "戻る", name: :back, class: "btn btn-secondary"%>
-        </div>
+          <div class="back_btn" >
+            <%= link_to "戻る", :back %>
+          </div>
       <% end %>
   </div>
 </div>

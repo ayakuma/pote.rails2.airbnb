@@ -8,18 +8,23 @@
 
           <div class="form-group">
             <br>
-            ユーザー名：<%= @post.user.name  %> <br><br>
-            <%# <hr size=".5px" color="#bbb"> %>
-            ルームID：<%= @post.room_id %><br><br>
-            <%# <hr size=".5px" color="#bbb"> %>
+            <div class="posts_tbody">
+            <% if @post.room_image? %>
+              <%= link_to"/rooms/#{@post.room_id}" do %>
+                <%= image_tag @post.room_image, class:"room_show_img" %>
+              <% end %>
+              <% else %>
+              <%= link_to"/rooms/#{@post.room_id}" do %>
+                <%= image_tag '/default.png', class:"room_show_img"%>
+              <% end %>
+              <% end %><br><br>
+            ルーム名：<%= link_to @post.room_name,"/rooms/#{@post.room_id}"%> <br><br>
+            </div>
+            予約名：<%=  @post.user.name %>様 <br><br>
             チェックイン：<%= @post.startday %><br><br>
-            <%# <hr size=".5px" color="#bbb"> %>
             チェックアウト：<%= @post.endday %><br><br>
-            <%# <hr size=".5px" color="#bbb"> %>
             人数：<%= @post.peoples %>名様<br><br>
-            <%# <hr size=".5px" color="#bbb"> %>
             合計金額：<%= @post.fee %>円<br><br>
-            <%# <hr size=".5px" color="#bbb"> %>
             </div>
 
             <div class="edit_btn">

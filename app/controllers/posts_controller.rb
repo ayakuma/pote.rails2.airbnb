@@ -15,6 +15,9 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id 
     @room = Room.find(params[:id])
     @post.room_id = @room.id
+    @post.room_name = @room.name
+    @post.room_image = @room.image
+    @post.room_introduction = @room.introduction
     render :confirm if @post.invalid?
     @post.fee = @room.price * @post.peoples * (@post.endday.to_date - @post.startday.to_date).to_i
     # binding.pry
@@ -23,9 +26,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    #  binding.pry
-    # @room = Room.find(params[:id])　　ここでエラー
-    # @post.room_id = @room.id 　　ここでエラー
     if @post.save
       redirect_to posts_path
     else
@@ -51,7 +51,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:user_id, :room_id, :startday, :endday, :peoples ,:fee)    
+    params.require(:post).permit(:user_id, :room_id,:room_name,:room_image,:room_introduction, :startday, :endday, :peoples ,:fee)    
   end
 
   def room_params

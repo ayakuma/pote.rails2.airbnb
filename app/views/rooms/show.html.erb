@@ -56,13 +56,13 @@
 
 
               <%= f.label :startday%>
-              <%= f.date_field :startday ,class:"profile_textfield form-control" %>
+              <%= f.date_field :startday ,class:"profile_textfield form-control",value: Time.now.strftime("%Y-%m-%d") %>
 
               <%= f.label :endday%>
-              <%= f.date_field :endday ,class:"profile_textfield form-control" %>
+              <%= f.date_field :endday ,class:"profile_textfield form-control",value: Time.now.tomorrow.strftime("%Y-%m-%d") %>
 
               <%= f.label :peoples%>
-              <%= f.text_field :peoples ,class:"profile_textfield form-control" %> 
+              <%= f.number_field :peoples ,class:"profile_textfield form-control",value: 1 %> 
              
               <br>
 

@@ -36,3 +36,20 @@
   opacity: .8;
   text-decoration: none;
 }
+
+
+.post_show_img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.posts_tbody a{
+  color: #222222;
+  text-decoration: none;
+}
+.posts_tbody a:hover{
+  color: #222222;
+  text-decoration: none;
+  opacity: .8;
+}

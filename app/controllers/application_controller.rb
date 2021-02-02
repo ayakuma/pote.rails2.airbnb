@@ -15,8 +15,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :img])
   end
 
-  # def after_sign_out_path_for(resource)
-  #   new_user_session_path # ログアウト後に遷移するpathを設定
-  # end
+  before_action :set_search
+
+  def set_search
+    #@search = Article.search(params[:q])
+    @search = Room.ransack(params[:q]) #ransackメソッド推奨
+    @search_articles = @search.result
+end
+
   
 end

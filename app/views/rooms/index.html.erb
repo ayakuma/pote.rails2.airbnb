@@ -1,61 +1,30 @@
-
 <div class="room_index_view">
 
-<h2>ルーム一覧</h2>
+  <h2>ルーム一覧</h2>
 
-<div class="card-deck">
-  <% @rooms.each do |room| %>
-      <div class="col-sm-6 col-lg-4 col-xl-3">
-        <div class="card">
-          <%= link_to room ,class:"card_link" do %>
-            <% if room.image? %>
-              <img src="<%= room.image %>" class="room_index_img">
-            <% else %>
-              <%= image_tag '/default.png', :class=>"room_index_img"%>
+  <div class="card-deck">
+    <% @rooms.each do |room| %>
+        <div class="col-sm-6 col-lg-4 col-xl-3">
+          <div class="card">
+            <%= link_to room ,class:"card_link" do %>
+              <% if room.image? %>
+                <img src="<%= room.image %>" class="room_index_img">
+              <% else %>
+                <%= image_tag '/default.png', :class=>"room_index_img"%>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= room.name %></h5>
+                <p class="card-text">  <%= simple_format room.introduction %></p>
+                <p class="card-text">  <%= room.address %></p>
+                <p class="card-text">  <%= room.user.name %></p>
+                <p class="card-text"> <%= number_to_currency(room.price, :unit => "円") %> / 日</p>
+                <p class="card-text"><small class="text-muted">更新日: <%= room.updated_at.strftime('%Y月%m日%d日') %></small></p>
+                  
+                <%# <a href= "<% room.id" class="stretched-link"></a>     %> 
+            </div>
             <% end %>
-            <div class="card-body">
-              <h5 class="card-title"><%= room.name %></h5>
-              <p class="card-text">  <%= simple_format room.introduction %></p>
-              <p class="card-text">  <%= room.address %></p>
-              <p class="card-text">  <%= room.user.name %></p>
-              <p class="card-text"> <%= number_to_currency(room.price, :unit => "円") %> / 日</p>
-              <p class="card-text"><small class="text-muted">更新日: <%= room.updated_at.strftime('%Y月%m日%d日') %></small></p>
-                
-              <%# <a href= "<% room.id" class="stretched-link"></a>     %> 
           </div>
-          <% end %>
         </div>
-      </div>
-  <% end %>
-</div>
-
-<table> 
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>画像</th>
-            <th>ホテル名</th>
-            <th>紹介文</th>
-            <th>住所</th>
-            <th>投稿日</th>
-            <th>確認</th>
-            <th>編集</th>
-            <th>削除</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @rooms.each do |room| %>
-            <tr>
-                <td><%= room.id %></td>
-                <td><img src="<%= room.image %>" width="50"></td>
-                <td><%= room.name %></td>
-                <td><%= room.introduction %></td>
-                <td><%= room.address %></td>
-                <td><%= room.updated_at.strftime('%Y月%m日%d日') %></td>
-                <td><%= link_to "確認", room, class:"textdeco"%></td>
-                <td><%= link_to "編集", [:edit, room], class:"textdeco" %></td>
-                <td><%= link_to "削除", room, method: :delete, data:{confirm:"本当に削除しますか？"}, class:"textdeco" %></td>
-                <% end %>
-      </tbody>
-  </table>
+    <% end %>
+  </div>
 </div>

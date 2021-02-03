@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     #@search = Article.search(params[:q])
     @search = Room.ransack(params[:q]) #ransackメソッド推奨
     @search_articles = @search.result
-end
+  end
 
   
 end

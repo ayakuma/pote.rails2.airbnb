@@ -5,6 +5,13 @@
       <%= search_form_for @search do |f| %>        
         <%= f.text_field :address_cont,placeholder: '東京',class:"index_input form-control" %>
         <%= f.submit "検索" ,class:"btn btn-primary"%>
-    <% end %>
+      <% end %>
+
+
+      <%= link_to '北海道' , rooms_index_path(q: { address_cont: '北海道' }) %>
+      <%= link_to '北海道', controller: "rooms", action: "index",q: {address_cont: '北海道'} %>
+      <%= link_to image_tag("/default.png"), rooms_index_path(q: { address_cont: '北海道' })%>
+
+
   </div>
 </div>

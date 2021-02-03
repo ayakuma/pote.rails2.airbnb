@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+
+.top_area_img > img{
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 10px;
+}
+
 .top_container > p{
   margin: 0;
   font-size: 12px;

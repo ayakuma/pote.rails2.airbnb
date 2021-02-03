@@ -4,9 +4,7 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all.order(id: "DESC")
-    @articles = Room.all.order(id: "DESC")
-
+    @rooms = Room.all
   end
 
   def new

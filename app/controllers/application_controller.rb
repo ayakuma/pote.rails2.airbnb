@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def set_search
     #@search = Article.search(params[:q])
     @search = Room.ransack(params[:q]) #ransackメソッド推奨
-    @search_articles = @search.result
+    @search_articles = @search.result.order(id: "DESC")
   end
 
   

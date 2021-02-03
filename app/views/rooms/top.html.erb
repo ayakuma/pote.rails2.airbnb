@@ -8,10 +8,15 @@
       <% end %>
 
 
-      <%= link_to '北海道' , rooms_index_path(q: { address_cont: '北海道' }) %>
-      <%= link_to '北海道', controller: "rooms", action: "index",q: {address_cont: '北海道'} %>
-      <%= link_to image_tag("/default.png"), rooms_index_path(q: { address_cont: '北海道' })%>
-
 
   </div>
+</div>
+
+<div class="top_area_container">
+
+
+      <%= link_to image_tag("/tokyo.jpg"), rooms_index_path(q: { address_cont: '東京' }), class:"top_area_img"%>
+      <%= link_to image_tag("/osaka.jpg"), rooms_index_path(q: { address_cont: '大阪' }), class:"top_area_img"%>
+      <%= link_to image_tag("/kyoto.jpg"), rooms_index_path(q: { address_cont: '京都' }), class:"top_area_img"%>
+      <%= link_to image_tag("/sapporo.jpg"), rooms_index_path(q: { address_cont: '北海道' }), class:"top_area_img"%>
 </div>

@@ -14,8 +14,8 @@
 
         <div class="card-body">
           <div class="card_title">
-            <% if current_user.img? %>
-              <%= link_to user_path(@room.user) do %>
+            <% if @room.user.img? %>
+              <%= link_to "#{@room.id}/hostprof" do %>
               <div class="room.user_page">
                 <%= image_tag @room.user.img.url, :height=>"40", class:"usericon" %><br>
                 <%= @room.user.name %>
@@ -64,14 +64,19 @@
               <%= f.number_field :peoples ,class:"profile_textfield form-control",value: 1 %> 
              
               <br>
-
-            <button type="submit" class="btn btn-primary">予約確認へ進む</button>
+            <% if user_signed_in? %>
+              <button type="submit" class="btn btn-primary">予約確認へ進む</button>
+            <% else %>
+              <div class="edit_btn">
+              <%= link_to("ログイン",new_user_session_path) %>
+              </div>
+            <% end %>
           </div>
         <% end %>
         <%# ここまで予約画面へ飛ばすフォーム %>
 
 
-        <% if @room.user.id == current_user.id %>
+        <% if user_signed_in? && @room.user.id == current_user.id %>
           <%= link_to"編集", edit_room_path(@room) ,class:"btn btn-primary"%>
           <%= link_to"削除", room_path(@room), method: :delete ,data:{confirm:"削除しますか？"},class:"btn btn-primary"%>
         <% end %>

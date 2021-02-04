@@ -26,8 +26,18 @@ textarea {
 }
 
 .create > p {
-    font-size: 20px;
-    margin: 0 0 20px;
+    font-size:25px;
+    margin: 0 ;
+}
+
+.create li{
+    list-style: none;
+}
+
+.create em{
+    font-size: 12px;
+    align-items: center;
+    color: #FF7068;
 }
 
 .create_form{
@@ -43,21 +53,16 @@ textarea {
     padding-left: 10px;
 }
 
-// .side{
-//     display: flex;
-//     margin: 10px 0;
+// .create_form p{
+//     height: 28px;
+//     width: 40px;
+//     background-color: #FF7068;
+//     line-height: 28px;
+//     border-radius: 5px;
+//     font-size: 12px;
+//     color: #fff;
+//     margin: 4px 20px 4px 0;
 // }
-
-.create_form p{
-    height: 28px;
-    width: 40px;
-    background-color: #FF7068;
-    line-height: 28px;
-    border-radius: 5px;
-    font-size: 12px;
-    color: #fff;
-    margin: 4px 20px 4px 0;
-}
 
 .create_btn{
     background-color: #4B8FE2;
@@ -96,10 +101,6 @@ textarea {
     margin: 10px 0;
 }
 
-.create em{
-    font-size: 12px;
-    align-items: center;
-}
 
 .signup_checkbox_field{
     text-align: center;
@@ -235,6 +236,7 @@ textarea {
     height: 100px;
     width: 100px;   
     margin-left: 20px; 
+    object-fit: cover;
 }
 
 

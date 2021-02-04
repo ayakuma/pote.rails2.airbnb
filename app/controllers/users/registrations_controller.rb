@@ -60,6 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+
   def user_update_path_for(resource)
     params.require(:user).permit(:name, :img, :introduction)
     current_user.assign_attributes(account_update_params)

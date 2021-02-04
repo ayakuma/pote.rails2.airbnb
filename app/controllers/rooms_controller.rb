@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+ 
   end
 
   def new
@@ -35,6 +36,15 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.update(room_params)
     redirect_to room_path(@room)
+  end
+
+  def hostprof
+    @room = Room.find(params[:id])
+  end
+
+  def myrooms 
+    @room = Room.find(params[:id])
+    @myroom = @room.user_id == current_user.id
   end
 
   def destroy

@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get "/" => 'rooms#top'
+  root to:'rooms#top'
   get 'rooms/index'
   get "users/index" => "users#index"
-  # post "rooms/:id/posts/confirm" => "rooms#confirm"
   post "rooms/:id/posts/confirm" => "posts#confirm"
+  get "rooms/:id/hostprof" => "rooms#hostprof"
+  get "rooms/myroom" => "rooms#myroom"
 
   resources :users
   resources :rooms
@@ -15,12 +16,6 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :posts
   end 
-
-  # resources :posts, only: [:new, :create, :show] do
-  #   collection do
-  #     post :confirm
-  #   end
-  # end
 
   devise_scope :user do
     get 'profile_edit', to: 'users/registrations#profile_edit', as: 'profile_edit'

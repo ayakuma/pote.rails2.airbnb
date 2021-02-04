@@ -6,46 +6,37 @@
     <thead>
         <tr class="posts_index_title">
             <th>画像</th>
-            <th>ルーム名</th>
-            <th>ルーム紹介</th>
-            <th>合計金額</th>
-            <th>宿泊日数</th>
-            <th>チェックイン</th>
-            <th>チェックアウト</th>
-            <th>人数</th>
-            <th>予約確定日</th>
+            <th >ルーム名</th>
+            <th class="post_introduce post_media">ルーム紹介</th>
+            <th class="post_media">合計金額</th>
+            <th class="post_media">予約確定日</th>
             <th>予約確認</th>
             <th>キャンセル</th>
         </tr>
     </thead>
 
     <tbody class="posts_tbody">
-        <% @posts.each do |post| %>
-            <tr>
+        <% current_user.posts.each do |post| %>
+            <tr class="outer">
               
-              <td>
-              <div class="posts_index_list">
-              <% if post.room_image? %>
-              <%= link_to"/rooms/#{post.room_id}" do %>
-                <%= image_tag post.room_image, class:"post_show_img" %>
-              <% end %>
-              <% else %>
-              <%= link_to"/rooms/#{post.room_id}" do %>
-                <%= image_tag '/default.png', class:"post_show_img"%>
-              <% end %>
-              <% end %>
-              </td>
-
-                <td><%= link_to post.room_name,"/rooms/#{post.room_id}"%></td>
-                <td><%= link_to post.room_introduction, "/rooms/#{post.room_id}" %></td>
-                <td><%= post.fee %>円</td>
-                <td><%= (post.endday.to_date - post.startday.to_date).to_i  %>日間</td> 
-                <td><%= post.startday.strftime('%Y月%m日%d日') %></td>
-                <td><%= post.endday.strftime('%Y月%m日%d日') %></td> 
-                <td><%= number_to_currency(post.peoples, :unit => "名様") %></td>
-                <td><%= post.updated_at.strftime('%Y月%m日%d日') %></td>
-                <td><%= link_to "確認", post, class:"textdeco"%></td>
-                <td><%= link_to "キャンセル", post, method: :delete, data:{confirm:"本当にキャンセルしますか？"}, class:"textdeco" %></td>
+                <div class="posts_index_list">
+                  <td class="align-middle text-center">
+                  <% if post.room_image? %>
+                  <%= link_to"/rooms/#{post.room_id}" do %>
+                    <%= image_tag post.room_image, class:"post_show_img" %>
+                  <% end %>
+                  <% else %>
+                  <%= link_to"/rooms/#{post.room_id}" do %>
+                    <%= image_tag '/default.png', class:"post_show_img"%>
+                  <% end %>
+                  <% end %>
+                  </td>
+                  <td class="align-middle text-center"><%= link_to post.room_name,"/rooms/#{post.room_id}" %></td>
+                  <td class="post_media"><%= link_to post.room_introduction, "/rooms/#{post.room_id}" %></td>
+                  <td class="align-middle text-center post_media"><%= post.fee %>円</td>
+                  <td class="align-middle text-center post_media"><%= post.updated_at.strftime('%Y月%m日%d日') %></td>
+                  <td class="align-middle text-center"><%= link_to "確認", post, class:"textdeco"%></td>
+                  <td class="align-middle text-center"><%= link_to "キャンセル", post, method: :delete, data:{confirm:"本当にキャンセルしますか？"}, class:"textdeco" %></td>
               </div>
             </tr>
               <% end %>

@@ -2,9 +2,7 @@
 
   <p>ログイン</p>
   <div class="create_form">
-
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
     <div class="signup_field">
       <%= f.label :email ,class:"profile_label" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"signup_textfield" %>

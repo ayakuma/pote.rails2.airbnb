@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-
-
   # deviseコントローラーにストロングパラメータを追加する          
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -21,6 +19,7 @@ class ApplicationController < ActionController::Base
     #@search = Article.search(params[:q])
     @search = Room.ransack(params[:q]) #ransackメソッド推奨
     @search_articles = @search.result.order(id: "DESC")
+    @count = @search_articles.count
   end
 
   

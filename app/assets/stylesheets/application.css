@@ -28,6 +28,7 @@
   background-color: #000000;
   color: #ffffff;
   margin: 0;
+  height: 60px;
 }
 
 header {
@@ -36,6 +37,8 @@ header {
   margin: 0;
   display: flex;
   text-align: center;
+  height: 60px;
+
 }
 
 .user_name{
@@ -71,6 +74,8 @@ header {
   margin-left: 10px;
 }
 
+
+
 .notice{
   margin: 0;
   height: 20px;
@@ -90,8 +95,8 @@ header {
 .header_right ul{
   float: right;
   position: absolute;
+  top: 15px;
   right: 10px;
-  justify-content: center;
   list-style: none;
   display: flex;
   margin-left: auto;
@@ -104,17 +109,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   border-radius: 5px;
   transition: 0.3s;
   text-decoration: none;
-  color: #000000;
+  /* color: #000000; */
 }
 
 
 .header_right a:hover{
   /* opacity: .5; */
-  background-color: orange;
+  /* background-color: orange; */
 }
 
 

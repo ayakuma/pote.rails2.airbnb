@@ -1,10 +1,9 @@
 <div class="room_index_view">
 
-  <h2>ルーム一覧</h2>
-  <p>検索結果： <%= @count %> </p>
+  <h2><%= current_user.name %>様　マイルーム一覧</h2>
 
   <div class="card-deck">
-    <% @search_articles.each do |room| %>
+    <% current_user.rooms.each do |room| %>
         <div class="col-sm-6 col-lg-4 col-xl-3">
           <div class="card">
             <%= link_to room ,class:"card_link" do %>

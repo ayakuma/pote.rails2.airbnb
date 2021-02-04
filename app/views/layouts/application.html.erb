@@ -18,15 +18,16 @@
         <div class="header_left">
           <%= link_to image_tag("logo.png", class:"top_logo"),"/" %>
 
-          <i class="fas fa-map-marker-alt form1"></i>
-          <%= search_form_for @search do |f| %>        
-              <%= f.text_field :address_cont, placeholder: 'エリア検索',class:"index_input form-control" %>
-          <% end %>
+            <i class="fas fa-map-marker-alt form1 d-none d-lg-block"></i>
+            <%= search_form_for @search do |f| %>        
+                <%= f.text_field :address_cont, placeholder: 'エリア検索',class:"index_input form-control d-none d-lg-block " %>
+            <% end %>
 
-          <i class="fas fa-search form1"></i>
-          <%= search_form_for @search do |f| %>
-              <%= f.text_field :name_or_address_or_introduction_cont, class: "form-control",placeholder: 'キーワード検索',class:"index_input form-control" %>
-          <% end %>
+            <i class="fas fa-search form1 d-none d-lg-block"></i>
+            <%= search_form_for @search do |f| %>
+                <%= f.text_field :name_or_address_or_introduction_cont, placeholder: 'キーワード検索',class:"index_input form-control d-none d-lg-block " %>
+            <% end %>
+
         </div>
 
         <% if user_signed_in? %>
@@ -55,6 +56,9 @@
                     <%= link_to("予約一覧", posts_path) %>
                   </li>
                   <li>
+                    <%= link_to("マイルーム一覧", rooms_myroom_path) %>
+                  </li>
+                  <li>
                     <%= link_to("urse一覧(仮)",users_index_path) %>
                   </li>
                   <li>
@@ -71,10 +75,10 @@
           <div class="header_right">
             <ul>
               <li>
-                <%= link_to("ログイン",new_user_session_path) %>
+                <%= link_to("ログイン",new_user_session_path, class:"btn btn-primary") %>
               </li>
               <li>
-                <%= link_to("登録する",new_user_registration_path) %>
+                <%= link_to("登録する",new_user_registration_path, class:"btn btn-light") %>
               </li>
             </ul>
           </div>

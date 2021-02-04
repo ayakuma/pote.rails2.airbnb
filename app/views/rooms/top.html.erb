@@ -11,12 +11,26 @@
 
   </div>
 </div>
-
-<div class="top_area_container">
-
-
-      <%= link_to image_tag("/tokyo.jpg"), rooms_index_path(q: { address_cont: '東京' }), class:"top_area_img"%>
-      <%= link_to image_tag("/osaka.jpg"), rooms_index_path(q: { address_cont: '大阪' }), class:"top_area_img"%>
-      <%= link_to image_tag("/kyoto.jpg"), rooms_index_path(q: { address_cont: '京都' }), class:"top_area_img"%>
-      <%= link_to image_tag("/sapporo.jpg"), rooms_index_path(q: { address_cont: '北海道' }), class:"top_area_img"%>
+<div class="container">
+  <div class="top_area_container m-5 ">
+    <h2>おすすめのエリア</h2>
+    <div class="row">
+      <div class="top_area_img col-lg-3 col-6">
+        <%= link_to image_tag("/tokyo.jpg"), rooms_index_path(q: { address_cont: '東京' })%>
+        <span>東京</span>
+      </div>
+      <div class="top_area_img col-lg-3 col-6">
+        <%= link_to image_tag("/osaka.jpg"), rooms_index_path(q: { address_cont: '大阪' })%>
+        <span>東京</span>
+      </div>
+      <div class="top_area_img col-lg-3 col-6">
+        <%= link_to image_tag("/kyoto.jpg"), rooms_index_path(q: { address_cont: '京都' })%>
+        <span>東京</span>
+      </div>
+      <div class="top_area_img col-lg-3 col-6">
+        <%= link_to image_tag("/sapporo.jpg"), rooms_index_path(q: { address_cont: '北海道' })%>
+        <span>東京</span>
+      </div>
+    </div>
+  </div>
 </div>

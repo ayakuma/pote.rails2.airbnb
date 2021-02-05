@@ -1,46 +1,57 @@
 <div class="edit_container">
 
-  <ul>
-      <li><%= link_to("アカウント","/users/show" )%></li>
-      <li><%= link_to("プロフィール",profile_edit_path,class:"active") %></li>
-  </ul>
+
+  <div class="user_sidemenu d-none d-lg-block">
+    <ul>
+      <div class="nav flex-column nav-pills " >
+        <li><%= link_to("アカウント","/users/show", class:"nav-link")%></li>
+        <li><%= link_to("プロフィール",profile_edit_path,class:"nav-link active") %></li>
+      </div>
+    </ul>
+  </div>
 
   <div class="profile_container">
+  
+    <nav class="d-block d-lg-none">
+      <div class="nav nav-tabs " id="nav-tab" role="tablist">
+        <li><%= link_to("アカウント","/users/show", class:"nav-link")%></li>          
+        <li><%= link_to("プロフィール",profile_edit_path,class:"nav-link active") %></li>
+      </div>
+    </nav>
+
     <div class="profile_box">
+      <h3>プロフィール編集</h3>
+      <hr size="1px" color="#e7e7e7">
 
-      <h3>プロフィール</h3>
+      <div class="mb-3">
+        <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name ,class:"profile_textfield form-control" %> <br>
 
-      <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
-        <hr size="1px" color="#bbb">
-        <div class="edit_field">
-          <%= f.label :img ,class:"profile_label" %><br />
-          <%= f.file_field :img ,class:"profile_filefield" %>
-
-          <% if current_user.img? %>
-              <%= image_tag current_user.img.url ,class: "icon"%>
-          <% else %>
-              <%= image_tag "default.png" ,class: "icon" %>
-          <% end %>
-        </div>
-      <hr size="1px" color="#bbb">
-        <div class="edit_field">
-          <%= f.label :name ,class:"profile_label"%><br />
-          <%= f.text_field :name ,class:"profile_textfield" %>
-        </div>
-        <hr size="1px" color="#bbb">
-        <div class="edit_field">
-          <%= f.label :introduction,class:"profile_label" %><br />
-          <%= f.text_area :introduction,class:"profile_textarea" %>
-        </div>
-        <hr size="1px" color="#bbb">
-
-      
-        <div class="actions">
-          <%= f.submit "更新" %>
-        </div>
-      <% end %>
+            <%= f.label :introduction %>
+            <%= f.text_area :introduction,class:"form-control",style:"height: 100px" %> <br>
 
 
-  </div>
+            <%= f.label :img  %>
+            <%= f.file_field :img ,class:"form-control"%> <br>
+
+            <div class="prof_edit_img">
+            <p><small>現在のアイコン</small></p>
+              <% if current_user.img? %>
+                  <%= image_tag current_user.img.url ,class: "icon"%>
+              <% else %>
+                  <%= image_tag "default.png" ,class: "icon" %>
+              <% end %>
+            </div>
+
+        
+          <div class="actions">
+            <%= f.submit "更新" %>
+          </div>
+        <% end %>
+      </div>
+
+
+    </div>
   </div>
 </div>

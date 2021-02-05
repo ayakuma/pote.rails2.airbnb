@@ -26,7 +26,7 @@ textarea {
 }
 
 .create > p {
-    font-size:25px;
+    font-size:2px;
     margin: 0 ;
 }
 
@@ -53,17 +53,6 @@ textarea {
     padding-left: 10px;
 }
 
-// .create_form p{
-//     height: 28px;
-//     width: 40px;
-//     background-color: #FF7068;
-//     line-height: 28px;
-//     border-radius: 5px;
-//     font-size: 12px;
-//     color: #fff;
-//     margin: 4px 20px 4px 0;
-// }
-
 .create_btn{
     background-color: #4B8FE2;
     color: #fff;
@@ -88,20 +77,6 @@ textarea {
     font-size: 15px;
 }
 
-.signup_field{
-    display: flex;
-    width: 400px;
-    margin: 0 auto;
-}
-
-.signup_textfield{
-    width: 300px;
-    height: 30px;
-    padding-left: 10px;
-    margin: 10px 0;
-}
-
-
 .signup_checkbox_field{
     text-align: center;
     margin: 10px 0;
@@ -118,31 +93,24 @@ textarea {
 
 // == prorfile_sidemenu ==
 
-.edit_container ul {
-    width: 200px;
-    // margin: 0;
-    padding: 0;
-    list-style-type: none;
-    background-color: #fff;
-    border-right: 1px solid #e7e7e7;
-}
-
-.edit_container a {
+.user_sidemenu  {
     display: block;
-    margin: 20px 20px;
-    padding: 10px 0;
+    padding: 30px 30px;
     text-decoration: none;
     color: #000000;
     text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #b5b5b5;
 }
 
-.edit_container li a.active {
-    color: #4B8FE2;
-    border-right: solid 2px #4B8FE2;
+.user_sidemenu ul {
+    padding: 0;
 }
-.edit_container li a:hover:not(.active) {
-    color: #4B8FE2;
+
+.user_sidemenu a{
+    margin-bottom: 20px;
 }
+
 
 // ==== users/edit ボックス====
 
@@ -164,13 +132,25 @@ textarea {
     width: 800px;
 }
 
+
+
+@media screen and (max-width: 990px) {
+    .profile_box{
+        border: none;
+        background-color: #fff;
+        padding: 30px 40px;
+        box-shadow: 0px 0px 10px #b5b5b5;
+        width: 480px;
+    }
+    }
+
 // == users/show ==
 
 .profile_box hr {
     margin: 20px 0;
 }
 
-.show_pass h4{
+.show_pass h5{
     display: inline-block;
     width: 200px;
 }
@@ -199,7 +179,7 @@ textarea {
     opacity: .8;
 }
 
-.back_btn > a{
+.back_btn {
     font-size: 13px;
     margin: 10px auto;
     width: 30px;
@@ -232,58 +212,18 @@ textarea {
 
 //  == profile img ==
 
+.prof_edit_img{
+    text-align: center;
+}
+
 .icon{
     height: 100px;
-    width: 100px;   
-    margin-left: 20px; 
+    width: 100px;
     object-fit: cover;
 }
 
 
-// == edit form ==
-
-.edit_field{
-    display: flex;
-    width: 700px;
-    margin: 0 auto;
-}
-
-.edit_field i{
-    display: flex;
-    font-size: 12px;
-    align-items: center;
-}
-
-.profile_label{
-    width: 150px;
-    height: 30px;
-    line-height: 30px; 
-    font-size: 15px;
-    margin: auto 0;
-    text-align: center;
-}
-
-.profile_filefield{
-    width: 300px;
-    height: 30px;
-    line-height: 30px; 
-    font-size: 15px;
-    margin: auto 0;
-    text-align: center;
-}
-
-.profile_textfield{
-    width: 500px;
-    height: 30px;
-    padding-left: 10px;
-}
-
-.profile_textarea{
-    width: 500px;
-    height: 100px;
-    padding-left: 10px;
-    margin: 20px 0;
-}
+// error message
 
 .errormesse{
     color: #FF7068;

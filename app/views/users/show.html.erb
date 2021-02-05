@@ -1,25 +1,38 @@
 <div class="edit_container">
     
+
+  <div class="user_sidemenu d-none d-lg-block">
     <ul>
-        <li><%= link_to("アカウント","/users/show",class:"active") %></li>
-        <li><%= link_to("プロフィール",profile_edit_path) %></li>
+      <div class="nav flex-column nav-pills " >
+        <li><%= link_to("アカウント","/users/show", class:"nav-link active")%></li>
+        <li><%= link_to("プロフィール",profile_edit_path,class:"nav-link") %></li>
+      </div>
     </ul>
+  </div>
 
     <div class="profile_container">
+
+        <nav class="d-block d-lg-none">
+        <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <li><%= link_to("アカウント","/users/show", class:"nav-link active")%></li>          
+            <li><%= link_to("プロフィール",profile_edit_path,class:"nav-link") %></li>
+        </div>
+        </nav>
+
         <div class="profile_box">
 
-            <h2>アカウント編集</h2>
+            <h3>アカウント編集</h3>
 
 
             <div class="show_container">
                 <hr size="1px" color="#e7e7e7">
                 <div class="show_pass">
-                    <h4>メールアドレス</h4>
+                    <h5>メールアドレス</h5>
                     <p><%= current_user.email %></p>
                 </div>
                 <hr size="1px" color="#e7e7e7">
                 <div class="show_pass">
-                    <h4>パスワード</h4>
+                    <h5>パスワード</h5>
                     <p>＊＊＊＊＊＊</p>
                 </div>
                 <hr size="1px" color="#e7e7e7">

@@ -2,11 +2,12 @@ require_relative "boot"
 
 require "rails/all"
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Aya
+module Ayabnb
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
@@ -18,5 +19,13 @@ module Aya
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.action_controller.permit_all_parameters = true
+
+    config.i18n.default_locale = :ja
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    config.time_zone = 'Tokyo'
+
   end
 end

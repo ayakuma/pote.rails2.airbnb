@@ -1,16 +1,98 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aya</title>
+    <title>Ayabnb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
+    <header>
+      <div class="header">
+        <div class="header_left">
+          <%= link_to image_tag("logo.png", class:"top_logo"),"/" %>
+
+            <i class="fas fa-map-marker-alt form1 d-none d-lg-block"></i>
+            <%= search_form_for @search do |f| %>        
+                <%= f.text_field :address_cont, placeholder: 'エリア検索',class:"index_input form-control d-none d-lg-block " %>
+            <% end %>
+
+            <i class="fas fa-search form1 d-none d-lg-block"></i>
+            <%= search_form_for @search do |f| %>
+                <%= f.text_field :name_or_address_or_introduction_cont, placeholder: 'キーワード検索',class:"index_input form-control d-none d-lg-block " %>
+            <% end %>
+
+        </div>
+
+        <% if user_signed_in? %>
+          <%# 🍔 %>
+          <div class="user_name">
+            <%= current_user.name %>
+          </div>
+            <div class="hamburger-menu"> 
+              <input type="checkbox" id="menu-btn-check">
+              <label for="menu-btn-check" class="menu-btn">
+              <% if current_user.img? %>
+                  <%= image_tag current_user.img.url ,:height=>"40", class:"usericon" %>
+              <% else %>
+                  <%= image_tag "default.png" ,:height=>"40" , class:"usericon" %>
+              <% end %></label>
+              <!--ここからメニュー-->
+              <div class="menu-content">            
+                <ul>
+                  <li>
+                    <%= link_to("ルーム一覧",rooms_index_path) %>
+                  </li>
+                  <li>
+                    <%= link_to("ルーム登録", new_room_path) %>
+                  </li>
+                  <li>
+                    <%= link_to("予約一覧", posts_path) %>
+                  </li>
+                  <li>
+                    <%= link_to("マイルーム一覧", rooms_myroom_path) %>
+                  </li>
+                  <li>
+                    <%= link_to("マイページ","/users/show") %>
+                  </li>
+                  <li>
+                    <%= link_to("ログアウト",destroy_user_session_path, method: :delete) %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+              <%# ここまで🍔 %>
+        <%else%>
+          <div class="header_right">
+            <ul>
+              <li>
+                <%= link_to("ログイン",new_user_session_path, class:"btn btn-primary") %>
+              </li>
+              <li>
+                <%= link_to("登録する",new_user_registration_path, class:"btn btn-light") %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </header>
+
+    <%# エラー文 %>
+    <% if flash.notice  %>
+    <p class="notice"><%= flash.notice%></p>
+    <%end%>
+
     <%= yield %>
+
+    <footer>
+      <p><span>©</span> 2021 KUMAKUMA.INC.</p>
+    </footer>
+
   </body>
 </html>

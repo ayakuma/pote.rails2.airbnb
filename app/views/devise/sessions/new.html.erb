@@ -1,0 +1,36 @@
+<div class="create">
+
+  <p>ログイン</p> <br>
+  <div class="create_form">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="errormesse">
+      <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <%- end -%> <br>
+    </div>
+    
+      <div class="mb-3">
+            <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control" %>
+      </div>
+      <div class="mb-3">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" ,class:"form-control"%>
+      </div>
+      <div class="mb-3 form-check">
+        <% if devise_mapping.rememberable? %>
+          <div class="signup_checkbox_field">
+            <%= f.check_box :remember_me ,class:"signup_checkbox"%>
+            <%= f.label :remember_me ,class:"signup_checkbox_text"%>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+
+    <%= link_to "新しいアカウントを作成",new_user_registration_path ,class:"create_link" %>
+  </div>
+</div>
